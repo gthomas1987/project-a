@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Amplify from 'aws-amplify';
 import config from './config';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 Amplify.configure({
     Auth: {
@@ -26,7 +27,12 @@ Amplify.configure({
     }
   });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(
+    <Router>
+      <App />
+    </Router>,
+    document.getElementById('root')
+  );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

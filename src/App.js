@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import About from './components/About';
 import Algos from './components/Algos';
+import Routes from "./Routes";
 
 
 function App() {
@@ -14,13 +15,7 @@ function App() {
   return (
     <div>
       <NavigBar />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Signup} />
-          <Route path="/algos" component={Algos} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </Router>
+      <Routes />
     </div>
   );
 }

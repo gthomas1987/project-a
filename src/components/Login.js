@@ -26,8 +26,6 @@ function Login(props) {
   return (
     <Container>
       <br></br>
-      <br></br>
-      <br></br>
       <Row>
         <Col></Col>
         <Col>
