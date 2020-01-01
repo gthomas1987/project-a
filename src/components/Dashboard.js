@@ -4,6 +4,7 @@ import {Container,Row,Col,Accordion, Button, Card} from 'react-bootstrap';
 import PositionChart from './PositionChart'
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
+import config from '../config';
 
 function Dashboard() {
   const [summary,setSummary] = useState([]);
@@ -11,11 +12,8 @@ function Dashboard() {
   const [npvY,setNpvY] = useState([]);
 
   useEffect(()=>{
-    fetchData();
-  },[]);
-
-  const data = {"user":"geo"}
-  const fetchData = async() =>  fetch('http://localhost:5000/getsummary', {
+    const data = {"user":"geo"}
+    fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
         headers: {
@@ -24,11 +22,16 @@ function Dashboard() {
       })
       .then(response=>response.json())
       .then(data=>{
+        console.log("API BEING USED IS:")
+        console.log(config.apiGateway.URL)
         setSummary(data)
         setNpvX(Object.keys(data.npvchart))
         setNpvY(Object.values(data.npvchart))
       })
       .catch(error=>console.log(error));
+  },[]);
+
+  
   
   return (
     

@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import ApexCharts from 'apexcharts'
+//import ApexCharts from 'apexcharts'
 
 import Chart from "react-apexcharts";
 

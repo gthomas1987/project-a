@@ -1,5 +1,5 @@
 import React from "react";
-import { Route,Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Login from './Login'
 
 export default function AppliedRoute({ component: C, appProps, ...rest }) {

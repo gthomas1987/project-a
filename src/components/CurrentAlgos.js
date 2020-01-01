@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
-import {Table,Container,Row} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 import AddAmountModal from './AddAmountModal';
 import WithdrawAmountModal from './WithdrawAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
-import { USDFormat,ThousandsFormat } from '../libs/numberFormat';
+import { USDFormat } from '../libs/numberFormat';
 
 function CurrentAlgos(props) {
   const [currentAlgos,setCurrentAlgos] = useState([]);

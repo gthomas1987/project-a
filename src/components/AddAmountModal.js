@@ -29,7 +29,7 @@ function AddAmountModal(props) {
   const UpdateAmount = async() => {
     try {
       const data = {"algoname":props.name,"amount":{amount}.amount,"action":"add"}
-      const response = await fetch('http://localhost:5000/updateAmount', {
+      await fetch('http://localhost:5000/updateAmount', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
         mode:'no-cors',
@@ -61,7 +61,7 @@ function AddAmountModal(props) {
             <Form.Label>Amount To Add</Form.Label>
             <Form.Control onChange = {AmountValue} as="select">
               {items.map((item,key)=>(
-                <option>{item}</option>
+                <option key={key}>{item}</option>
               ))}
               
             </Form.Control>
