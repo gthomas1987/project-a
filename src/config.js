@@ -3,7 +3,7 @@
 
   const dev = {
     apiGateway: {
-      URL: "http://127.0.0.1:5000"
+      URL2: "http://127.0.0.1:5000"
     },
     cognito: {
       REGION: "us-east-2",
@@ -15,7 +15,7 @@
   
   const prod = {
     apiGateway: {
-      URL: "ProjectA-env-3.pxmqbpnmph.us-east-2.elasticbeanstalk.com"
+      URL: "http://ProjectA-env-3.pxmqbpnmph.us-east-2.elasticbeanstalk.com"
     },
     cognito: {
       REGION: "us-east-2",

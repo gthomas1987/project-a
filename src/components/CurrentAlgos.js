@@ -20,7 +20,7 @@ function CurrentAlgos(props) {
 
   const fetchData = async() => {
     console.log("fetching algos")
-    fetch(config.apiGateway.URL+'/getalgos')
+    await fetch(config.apiGateway.URL+'/getalgos')
       .then(response=>response.json())
       .then(data=>{
         console.log(data)

@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form,Table,Card,Accordion} from 'react-bootstrap'
+import config from '../config';
 
 function AlgoDetailsModal(props) {
   
@@ -14,7 +15,7 @@ function AlgoDetailsModal(props) {
   useEffect(()=>{
     
     const data = {"algoname":props.name}
-    fetch('http://localhost:5000/getalgodetails', {
+    fetch(config.apiGateway.URL+'/getalgodetails', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
         headers: {
