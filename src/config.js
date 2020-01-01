@@ -15,7 +15,7 @@
   
   const prod = {
     apiGateway: {
-      URL: "server.gtalgos.com"
+      URL: "https://server.gtalgos.com"
     },
     cognito: {
       REGION: "us-east-2",
