@@ -15,7 +15,7 @@
   
   const prod = {
     apiGateway: {
-      URL: "https://ProjectA-env-3.pxmqbpnmph.us-east-2.elasticbeanstalk.com"
+      URL: "http://server.gtalgos.com"
     },
     cognito: {
       REGION: "us-east-2",
