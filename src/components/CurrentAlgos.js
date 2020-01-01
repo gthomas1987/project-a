@@ -4,6 +4,7 @@ import AddAmountModal from './AddAmountModal';
 import WithdrawAmountModal from './WithdrawAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
 import { USDFormat } from '../libs/numberFormat';
+import config from '../config';
 
 function CurrentAlgos(props) {
   const [currentAlgos,setCurrentAlgos] = useState([]);
@@ -19,7 +20,7 @@ function CurrentAlgos(props) {
 
   const fetchData = async() => {
     console.log("fetching algos")
-    fetch('http://localhost:5000/getalgos')
+    fetch(config.apiGateway.URL+'/getalgos')
       .then(response=>response.json())
       .then(data=>{
         console.log(data)

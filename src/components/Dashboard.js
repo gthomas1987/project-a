@@ -12,7 +12,12 @@ function Dashboard() {
   const [npvY,setNpvY] = useState([]);
 
   useEffect(()=>{
+    fetchData()
+  },[]);
+
+  const fetchData = async() => {
     const data = {"user":"geo"}
+    console.log(config.apiGateway.URL)
     fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -29,9 +34,7 @@ function Dashboard() {
         setNpvY(Object.values(data.npvchart))
       })
       .catch(error=>console.log(error));
-  },[]);
-
-  
+    }
   
   return (
     
