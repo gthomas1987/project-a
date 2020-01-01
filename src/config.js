@@ -25,9 +25,9 @@
     }
   };
   
-  const config = process.env.REACT_APP_STAGE === 'production'
-    ? prod
-    : dev;
+  const config = process.env.REACT_APP_STAGE === 'dev'
+    ? dev
+    : prod;
   
   export default {
     // Add common config values here
