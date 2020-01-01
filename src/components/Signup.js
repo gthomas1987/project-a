@@ -109,6 +109,7 @@ export default function Signup(props) {
   function renderForm() {
     return (
         <Container>
+          <br></br>
             <Row>
                 <Col></Col>
                 <Col>

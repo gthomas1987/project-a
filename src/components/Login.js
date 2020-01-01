@@ -16,7 +16,8 @@ function Login(props) {
   
     try {
       await Auth.signIn(email, password);
-      alert("Logged in");
+      props.userHasAuthenticated(true);
+      props.history.push("/dashboard");
     } catch (e) {
       alert(e.message);
     }
@@ -31,7 +32,7 @@ function Login(props) {
         <Col>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control autoFocus value={email} type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)}/>
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.

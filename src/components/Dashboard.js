@@ -14,17 +14,22 @@ function Dashboard() {
     fetchData();
   },[]);
 
-  
-  const fetchData = async() => {
-    fetch('http://localhost:5000/getsummary')
+  const data = {"user":"geo"}
+  const fetchData = async() =>  fetch('http://localhost:5000/getsummary', {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
       .then(response=>response.json())
       .then(data=>{
-        console.log(data)
         setSummary(data)
         setNpvX(Object.keys(data.npvchart))
         setNpvY(Object.values(data.npvchart))
       })
-  }
+      .catch(error=>console.log(error));
+  
   return (
     
     <Container>
