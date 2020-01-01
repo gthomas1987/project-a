@@ -14,9 +14,8 @@
   };
   
   const prod = {
-    hi:"",
     apiGateway: {
-      URL: "http://ProjectA-env-3.pxmqbpnmph.us-east-2.elasticbeanstalk.com"
+      URL: "https://ProjectA-env-3.pxmqbpnmph.us-east-2.elasticbeanstalk.com"
     },
     cognito: {
       REGION: "us-east-2",
