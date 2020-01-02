@@ -14,7 +14,7 @@ function AlgoDetailsModal(props) {
 
   useEffect(()=>{
     
-    const data = {"algoname":props.name}
+    const data = {"algoname":props.name,"email":props.email}
     fetch(config.apiGateway.URL+'/getalgodetails', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -30,7 +30,7 @@ function AlgoDetailsModal(props) {
         setTrades(data.trades)
       })
       .catch(error=>console.log(error));
-  },[props.name]);
+  },[props.name,props.email]);
   
 
   return (

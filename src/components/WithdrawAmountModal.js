@@ -29,7 +29,7 @@ function WithdrawAmountModal(props) {
 
   const UpdateAmount = async() => {
     try {
-      const data = {"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
+      const data = {"email":props.email,"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
       await fetch('http://localhost:5000/updateAmount', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!

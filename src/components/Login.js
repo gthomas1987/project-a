@@ -17,7 +17,7 @@ function Login(props) {
     try {
       await Auth.signIn(email, password);
       props.userHasAuthenticated(true);
-      props.history.push("/dashboard");
+      props.history.push({pathname:"/dashboard",state:{email}});
     } catch (e) {
       alert(e.message);
     }

@@ -15,19 +15,22 @@ function CurrentAlgos(props) {
   }
 
   useEffect(()=>{
-    fetchData();
-  },[refresh]);
-
-  const fetchData = async() => {
-    console.log("fetching algos")
-    await fetch(config.apiGateway.URL+'/getalgos')
+    const data = {"email":props.email}
+    fetch(config.apiGateway.URL+"/getalgos", {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
       .then(response=>response.json())
       .then(data=>{
-        console.log(data)
         setCurrentAlgos(data)
       })
-  }
+  },[refresh,props.email]);
 
+  
   
   return (
     
@@ -55,14 +58,14 @@ function CurrentAlgos(props) {
                   <td>{USDFormat(item.pnl)}</td>
                   <td>
                     
-                    <AddAmountModal name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.marginfree}/>
+                    <AddAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.marginfree}/>
                   </td> 
                   <td>
-                    <WithdrawAmountModal name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
+                    <WithdrawAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
                     
                   </td>
                   <td>
-                  <AlgoDetailsModal name={item.name} refresh ={handleRefresh} />
+                  <AlgoDetailsModal name={item.name} email={props.email} refresh ={handleRefresh} />
                   </td>
                 </tr>
                 ))}

@@ -62,7 +62,7 @@ export default function Signup(props) {
       await Auth.signIn(fields.email, fields.password);
   
       props.userHasAuthenticated(true);
-      props.history.push("/");
+      props.history.push("/dashboard");
     } catch (e) {
       alert(e.message);
       setIsLoading(false);

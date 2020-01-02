@@ -6,21 +6,16 @@ import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import config from '../config';
 
-function Dashboard() {
+function Dashboard(props) {
   const [summary,setSummary] = useState([]);
   const [npvX,setNpvX] = useState([]);
   const [npvY,setNpvY] = useState([]);
-
   useEffect(()=>{
-    fetchData()
-  },[]);
-
-  const fetchData = async() => {
-    const data = {"user":"geo"}
     console.log(config.apiGateway.URL)
+    console.log(props.location.state)
     fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
+        body: JSON.stringify(props.location.state), // data can be `string` or {object}!
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -28,14 +23,13 @@ function Dashboard() {
       })
       .then(response=>response.json())
       .then(data=>{
-        console.log("API BEING USED IS:")
-        console.log(config.apiGateway.URL)
         setSummary(data)
         setNpvX(Object.keys(data.npvchart))
         setNpvY(Object.values(data.npvchart))
       })
       .catch(error=>console.log(error));
-    }
+  },[props.location]);
+
   
   return (
     
@@ -57,12 +51,12 @@ function Dashboard() {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body><CurrentAlgos summary={summary}/></Card.Body>
+            <Card.Body><CurrentAlgos summary={summary} email={props.location.state.email}/></Card.Body>
           </Accordion.Collapse>
         </Card>
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <Accordion.Toggle as={Button} variant="link" eventKey="1">
               Current Positions
             </Accordion.Toggle>
           </Card.Header>
@@ -72,7 +66,7 @@ function Dashboard() {
         </Card>
         <Card>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="1">
+            <Accordion.Toggle as={Button} variant="link" eventKey="2">
               Trade History
             </Accordion.Toggle>
           </Card.Header>
