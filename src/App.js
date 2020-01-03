@@ -46,7 +46,7 @@ function App(props) {
             <NavItem onClick={handleLogout}>Log Out</NavItem>
           : <>
           <Navbar.Collapse>
-            <Nav pullRight>
+            <Nav>
               <LinkContainer to="/signup">
                 <NavItem>Signup</NavItem>
               </LinkContainer>

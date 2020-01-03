@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
+import config from '../config';
 
 function WithdrawAmountModal(props) {
   
@@ -30,7 +31,7 @@ function WithdrawAmountModal(props) {
   const UpdateAmount = async() => {
     try {
       const data = {"email":props.email,"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
-      await fetch('http://localhost:5000/updateAmount', {
+      await fetch(config.apiGateway.URL+'/updateAmount', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
         mode:'no-cors',

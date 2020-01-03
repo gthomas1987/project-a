@@ -24,8 +24,6 @@ function AlgoDetailsModal(props) {
       })
       .then(response=>response.json())
       .then(data=>{
-        console.log(data)
-        console.log(data.trades)
         setPositions(data.positions)
         setTrades(data.trades)
       })
