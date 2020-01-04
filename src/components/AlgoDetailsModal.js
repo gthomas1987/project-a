@@ -1,12 +1,15 @@
 import React,{useState,useEffect} from 'react';
-import {Modal,Button,Form,Table,Card,Accordion} from 'react-bootstrap'
+import {Col,Container,Modal,Button,Form,Table,Card,Accordion} from 'react-bootstrap'
 import config from '../config';
+import AlgoPNLChart from './AlgoPNLChart';
 
 function AlgoDetailsModal(props) {
   
   const [show, setShow] = useState(false);
   const [positions, setPositions] = useState([]);
   const [trades, setTrades] = useState([]);
+  const [chart1,setChart1] = useState([]);
+  const [chart2,setChart2] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -24,6 +27,12 @@ function AlgoDetailsModal(props) {
       })
       .then(response=>response.json())
       .then(data=>{
+        console.log(Date.parse("13-Dec-2019 12:23:00"))
+        console.log(data)
+        console.log(data.pnlchart)
+        console.log(data.diffchart)
+        setChart1(data.pnlchart)
+        setChart2(data.diffchart)
         setPositions(data.positions)
         setTrades(data.trades)
       })
@@ -42,6 +51,13 @@ function AlgoDetailsModal(props) {
           <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Container>
+          <Col></Col>
+        <Col>
+        <AlgoPNLChart  pnlchart={chart1} diffchart={chart2}/>
+        </Col>
+        <Col></Col>
+        </Container>
         <Accordion defaultActiveKey="0">
           <Card>
             <Card.Header>

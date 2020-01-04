@@ -1,10 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import Routes from "./Routes";
-import {Navbar,Nav,NavItem} from 'react-bootstrap';
+import {Navbar,Nav} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
 import { withRouter} from "react-router-dom";
-import {LinkContainer} from 'react-router-bootstrap'
-
+//import './App.css';
 
 function App(props) {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
@@ -42,17 +41,16 @@ function App(props) {
       <Navbar bg="light" variant="light">
         <Navbar.Brand>Algo Storm</Navbar.Brand>
           {isAuthenticated
-          ?
-            <NavItem onClick={handleLogout}>Log Out</NavItem>
+          ? <>
+          <Nav className="ml-auto">
+            <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
+          </Nav>
+            </>
           : <>
           <Navbar.Collapse>
-            <Nav>
-              <LinkContainer to="/signup">
-                <NavItem>Signup</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/login">
-                <NavItem>Login</NavItem>
-              </LinkContainer>
+            <Nav className="ml-auto">
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
+              <Nav.Link href="/login">Log In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </>

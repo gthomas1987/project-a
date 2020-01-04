@@ -11,8 +11,6 @@ function Dashboard(props) {
   const [npvX,setNpvX] = useState([]);
   const [npvY,setNpvY] = useState([]);
   useEffect(()=>{
-    console.log(config.apiGateway.URL)
-    console.log(props.location.state)
     fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(props.location.state), // data can be `string` or {object}!

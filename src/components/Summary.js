@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Table} from 'react-bootstrap';
 import {USDFormat} from '../libs/numberFormat'
+import {Deposit} from './Deposit'
+import {Withdraw} from './Withdraw'
 
 function Summary(props) {
-  
+  const [refresh,setRefresh] = useState(false);
+
+  const handleRefresh = () => {
+    setRefresh(!{refresh}.refresh);
+  }
   return (
     <div>
         <Table striped bordered hover>
@@ -18,20 +24,21 @@ function Summary(props) {
               <td>{USDFormat(props.summary.npv)}</td>
             </tr>
             <tr>
-              <td>Cash Deposited</td>
+              <td>Cash Deposited&nbsp;&nbsp;&nbsp;<Deposit email={props.email} refresh ={handleRefresh} min={5000} max={50000}/></td>
               <td>{USDFormat(props.summary.accountbalance)}</td>
             </tr>
+            
             <tr>
-              <td>Margin Used</td>
-              <td>{USDFormat(props.summary.marginused)}</td>
+              <td>Amount Allocated</td>
+              <td>{USDFormat(props.summary.amountallocated)}</td>
             </tr>
             <tr>
-              <td>Margin(%)</td>
-              <td>{props.summary.marginlevel}</td>
+              <td>Usage (%)</td>
+              <td>{props.summary.usagelevel}</td>
             </tr>
             <tr>
-              <td>Margin Free</td>
-              <td>{USDFormat(props.summary.marginfree)}</td>
+              <td>Amount Free&nbsp;&nbsp;&nbsp;<Withdraw email={props.email} refresh ={handleRefresh} min={0} max={props.summary.amountfree}/></td>
+              <td>{USDFormat(props.summary.amountfree)}</td>
             </tr>
             
           </tbody>

@@ -11,6 +11,7 @@ function CurrentAlgos(props) {
   const [refresh,setRefresh] = useState(false);
 
   const handleRefresh = () => {
+    console.log("Calling refresh")
     setRefresh(!{refresh}.refresh);
   }
 
@@ -40,7 +41,6 @@ function CurrentAlgos(props) {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Margin Used</th>
               <th>Amount Allocated</th>
               <th>Profit/Loss</th>
               <th>-</th>
@@ -53,12 +53,11 @@ function CurrentAlgos(props) {
               {currentAlgos.map((item,key)=>(
                 <tr key ={key}>
                   <td>{item.name}</td>
-                  <td>{USDFormat(item.margin)}</td>
                   <td>{USDFormat(item.amount)}</td>
                   <td>{USDFormat(item.pnl)}</td>
                   <td>
                     
-                    <AddAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.marginfree}/>
+                    <AddAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.amountfree}/>
                   </td> 
                   <td>
                     <WithdrawAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
