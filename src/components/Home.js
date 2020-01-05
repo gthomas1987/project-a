@@ -7,13 +7,8 @@ export default function Home(props) {
     <div className="Home">
       <div className="lander">
         <h1>GT Algos</h1>
-        {props.isAuthenticated
-        ?
-        <Button href="/dashboard">Go To Dashboard</Button>
+        <Button href="/dashboard">Dashboard</Button>
         
-        :
-        <p>Welcome</p>
-        }
       </div>
     </div>
   );

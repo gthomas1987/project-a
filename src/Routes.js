@@ -10,10 +10,10 @@ import NotFound from "./components/NotFound";
 export default function Routes({appProps}) {
   return (
     <Switch>
-        <AppliedRoute path="/" exact component={Home} appProps={appProps} />
+        <Route path="/" exact component={Home} appProps={appProps} />
+        <Route path="/signup" exact component={Signup} appProps={appProps} />
         <AppliedRoute path="/login" exact component={Login} appProps={appProps} />
         <AppliedRoute path="/dashboard" exact component={Dashboard} appProps={appProps} />
-        <AppliedRoute path="/signup" exact component={Signup} appProps={appProps} />
         <AppliedRoute path="/index.html" exact component={Dashboard} appProps={appProps} />
         { /* Finally, catch all unmatched routes */ }
         <Route component={NotFound} />
