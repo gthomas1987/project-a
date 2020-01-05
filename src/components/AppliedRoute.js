@@ -7,7 +7,7 @@ export default function AppliedRoute({ component: C, appProps, ...rest }) {
   console.log(rest.path)
   
   return (
-    !appProps.isAuthenticated && rest.path==="/dashboard"
+    !appProps.isAuthenticated
     ?<Route {...rest} render={props => <Login {...props} {...appProps} />} />
     :<Route {...rest} render={props => <C {...props} {...appProps} />} />
   );
