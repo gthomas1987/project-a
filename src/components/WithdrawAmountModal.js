@@ -15,6 +15,7 @@ function WithdrawAmountModal(props) {
   
   useEffect(()=>{
     const itemsToAdd=[]
+    setAmount(5000)
     for (var i=props.min;i<=props.max;i=i+props.min){
       itemsToAdd.push(i)
     }
@@ -30,7 +31,7 @@ function WithdrawAmountModal(props) {
 
   const UpdateAmount = async() => {
     try {
-      const data = {"email":props.email,"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
+      const data = {"userid":props.userid,"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
       await fetch(config.apiGateway.URL+'/updateAmount', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -49,7 +50,7 @@ function WithdrawAmountModal(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button size="sm" variant="danger" onClick={handleShow} block>
         Withdraw
       </Button>
 
@@ -61,7 +62,7 @@ function WithdrawAmountModal(props) {
         <Form>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Amount To Withdraw</Form.Label>
-            <Form.Control  onChange = {AmountValue} as="select">
+            <Form.Control defaultValue="5000" onChange = {AmountValue} as="select">
               {items.map((item,key)=>(
                 <option key={key}>{item}</option>
               ))}

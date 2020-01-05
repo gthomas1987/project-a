@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {Table} from 'react-bootstrap';
+import {Table,Row,Col} from 'react-bootstrap';
 import AddAmountModal from './AddAmountModal';
 import WithdrawAmountModal from './WithdrawAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
@@ -11,13 +11,15 @@ function CurrentAlgos(props) {
   const [refresh,setRefresh] = useState(false);
 
   const handleRefresh = () => {
-    console.log("Calling refresh")
+    console.log("Calling current algos refresh")
+    props.refresh()
     setRefresh(!{refresh}.refresh);
   }
 
   useEffect(()=>{
-    const data = {"email":props.email}
-    fetch(config.apiGateway.URL+"/getalgos", {
+    const data = {"userid":props.userid}
+    async function FetchAlgos(){
+      await fetch(config.apiGateway.URL+"/getalgos", {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(data), // data can be `string` or {object}!
       headers: {
@@ -27,9 +29,12 @@ function CurrentAlgos(props) {
     })
       .then(response=>response.json())
       .then(data=>{
+        console.log("Fetching Client Algos API")
         setCurrentAlgos(data)
       })
-  },[refresh,props.email]);
+    }
+    FetchAlgos()
+  },[props.userid,refresh,props.refreshDash]);
 
   
   
@@ -43,9 +48,6 @@ function CurrentAlgos(props) {
               <th>Name</th>
               <th>Amount Allocated</th>
               <th>Profit/Loss</th>
-              <th>-</th>
-              <th>-</th>
-              <th>-</th>
             </tr>
           </thead>
           <tbody>
@@ -55,17 +57,17 @@ function CurrentAlgos(props) {
                   <td>{item.name}</td>
                   <td>{USDFormat(item.amount)}</td>
                   <td>{USDFormat(item.pnl)}</td>
-                  <td>
-                    
-                    <AddAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.amountfree}/>
-                  </td> 
-                  <td>
-                    <WithdrawAmountModal email={props.email} name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
-                    
-                  </td>
-                  <td>
-                  <AlgoDetailsModal name={item.name} email={props.email} refresh ={handleRefresh} />
-                  </td>
+                  <Row>
+                  <Col>
+                  <AddAmountModal userid={props.userid} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.amountfree}/>
+                  </Col>  
+                  <Col>
+                  <WithdrawAmountModal userid={props.userid} name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
+                  </Col>
+                  <Col>
+                  <AlgoDetailsModal name={item.name} userid={props.userid} refresh ={handleRefresh} />
+                  </Col>
+                  </Row>
                 </tr>
                 ))}
             

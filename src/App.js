@@ -32,14 +32,14 @@ function App(props) {
     await Auth.signOut();
   
     userHasAuthenticated(false);
-    props.history.push("/login");
+    props.history.push("/");
   }
 
   return (
     !isAuthenticating &&
     <div>
       <Navbar bg="light" variant="light">
-        <Navbar.Brand>Algo Storm</Navbar.Brand>
+        <Navbar.Brand href="/">GT Algos</Navbar.Brand>
           {isAuthenticated
           ? <>
           <Nav className="ml-auto">

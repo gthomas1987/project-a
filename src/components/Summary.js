@@ -8,8 +8,11 @@ function Summary(props) {
   const [refresh,setRefresh] = useState(false);
 
   const handleRefresh = () => {
+    props.refresh()
     setRefresh(!{refresh}.refresh);
   }
+
+
   return (
     <div>
         <Table striped bordered hover>
@@ -24,7 +27,7 @@ function Summary(props) {
               <td>{USDFormat(props.summary.npv)}</td>
             </tr>
             <tr>
-              <td>Cash Deposited&nbsp;&nbsp;&nbsp;<Deposit email={props.email} refresh ={handleRefresh} min={5000} max={50000}/></td>
+              <td>Cash Deposited&nbsp;&nbsp;&nbsp;<Deposit userid={props.userid} refresh ={handleRefresh} min={5000} max={50000}/></td>
               <td>{USDFormat(props.summary.accountbalance)}</td>
             </tr>
             
@@ -37,7 +40,7 @@ function Summary(props) {
               <td>{props.summary.usagelevel}</td>
             </tr>
             <tr>
-              <td>Amount Free&nbsp;&nbsp;&nbsp;<Withdraw email={props.email} refresh ={handleRefresh} min={0} max={props.summary.amountfree}/></td>
+              <td>Amount Free&nbsp;&nbsp;&nbsp;<Withdraw userid={props.userid} refresh ={handleRefresh} min={0} max={props.summary.amountfree}/></td>
               <td>{USDFormat(props.summary.amountfree)}</td>
             </tr>
             

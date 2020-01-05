@@ -32,7 +32,7 @@ export function Withdraw(props) {
 
   const UpdateCash = async() => {
     try {
-      const data = {"email":props.email,"amount":{amount}.amount,"action":"withdraw"}
+      const data = {"userid":props.userid,"amount":{amount}.amount,"action":"withdraw"}
       await fetch(config.apiGateway.URL+'/updateCash', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -47,7 +47,7 @@ export function Withdraw(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-danger" onClick={handleShow}>
         Withdraw
       </Button>
       <Form>

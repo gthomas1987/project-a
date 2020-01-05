@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {Form,Button,Container,Row,Col} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
-import backgroundPic from '../BackgroundPic.jpg'
+
 
 
 function Login(props) {
@@ -26,7 +26,7 @@ function Login(props) {
   
   
   return (
-    <Container styles={{ backgroundImage:`url(${backgroundPic})` }}>
+    <Container>
       <br></br>
       <Row>
         <Col></Col>

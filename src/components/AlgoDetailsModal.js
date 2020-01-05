@@ -17,7 +17,7 @@ function AlgoDetailsModal(props) {
 
   useEffect(()=>{
     
-    const data = {"algoname":props.name,"email":props.email}
+    const data = {"algoname":props.name,"userid":props.userid}
     fetch(config.apiGateway.URL+'/getalgodetails', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -27,7 +27,6 @@ function AlgoDetailsModal(props) {
       })
       .then(response=>response.json())
       .then(data=>{
-        console.log(Date.parse("13-Dec-2019 12:23:00"))
         console.log(data)
         console.log(data.pnlchart)
         console.log(data.diffchart)
@@ -37,16 +36,16 @@ function AlgoDetailsModal(props) {
         setTrades(data.trades)
       })
       .catch(error=>console.log(error));
-  },[props.name,props.email]);
+  },[props.name,props.userid]);
   
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button size="sm" variant="primary" onClick={handleShow} block  >
         Details
       </Button>
       <Form>
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal size="xl" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>

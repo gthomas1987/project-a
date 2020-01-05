@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
 import config from '../config';
 
+
 export function Deposit(props) {
   
   const [show, setShow] = useState(false);
@@ -11,6 +12,7 @@ export function Deposit(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const AmountValue = (e) => setAmount(e.target.value);
+  
 
   useEffect(()=>{
     const itemsToAdd=[]
@@ -27,12 +29,11 @@ export function Deposit(props) {
     UpdateCash();
     props.refresh()
   }
-
   
 
   const UpdateCash = async() => {
     try {
-      const data = {"email":props.email,"amount":{amount}.amount,"action":"add"}
+      const data = {"userid":props.userid,"amount":{amount}.amount,"action":"add"}
       await fetch(config.apiGateway.URL+'/updateCash', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -47,7 +48,7 @@ export function Deposit(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-success" onClick={handleShow}>
         Deposit
       </Button>
       <Form>
