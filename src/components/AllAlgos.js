@@ -31,6 +31,7 @@ function AllAlgos(props) {
       .then(response=>response.json())
       .then(data=>{
         console.log("Fetching All Algos API")
+        console.log(data)
         setCurrentAlgos(data)
       })
   },[refresh,props.userid,props.refreshDash]);

@@ -30,6 +30,7 @@ function CurrentAlgos(props) {
       .then(response=>response.json())
       .then(data=>{
         console.log("Fetching Client Algos API")
+        console.log(data)
         setCurrentAlgos(data)
       })
     }
