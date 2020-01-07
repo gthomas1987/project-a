@@ -3,38 +3,18 @@ import {Button,Modal,Table,Row,Col} from 'react-bootstrap';
 import AddAmountModal from './AddAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
 import { USDFormat } from '../libs/numberFormat';
-import config from '../config';
+
 
 function AllAlgos(props) {
   const [currentAlgos,setCurrentAlgos] = useState([]);
-  const [refresh,setRefresh] = useState(false);
   const [show, setShow] = useState(false);
-  const handleClose = () => {props.refresh();setShow(false);}
-  const handleShow = () => {setRefresh(!{refresh}.refresh);setShow(true);}
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-  const handleRefresh = () => {
-    console.log("Calling all algo refresh")
-    setRefresh(!{refresh}.refresh);
-    props.refresh()
-  }
 
   useEffect(()=>{
-    const data = {"userid":props.userid}
-    fetch(config.apiGateway.URL+"/getallalgos", {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-      .then(response=>response.json())
-      .then(data=>{
-        console.log("Fetching All Algos API")
-        console.log(data)
-        setCurrentAlgos(data)
-      })
-  },[refresh,props.userid,props.refreshDash]);
+    setCurrentAlgos(props.allAlgos)
+  },[props.userid,props.allAlgos]);
 
   
   
@@ -67,10 +47,10 @@ function AllAlgos(props) {
                   <Row>
                     
                   <Col>
-                  <AddAmountModal userid={props.userid} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.amountfree}/>
+                  <AddAmountModal userid={props.userid} name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
                   </Col>  
                   <Col>
-                  <AlgoDetailsModal name={item.name} userid={props.userid} refresh ={handleRefresh} />
+                  <AlgoDetailsModal name={item.name} userid={props.userid}  />
                   </Col>
                   </Row>
                 </tr>

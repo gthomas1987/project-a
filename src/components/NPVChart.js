@@ -9,6 +9,8 @@ function NPVChart(props){
   const [series,setSeries] = useState([]);
 
   useEffect(()=>{
+    
+    
     setOptions({
       dataLabels: {
         enabled: false
@@ -43,19 +45,19 @@ function NPVChart(props){
     setSeries([
       {
         name: "PNL",
-        data: props.npvchart
+        data: props.npvChart
       }
     ])
-  },[props.npvchart]);
+  },[props.npvChart]);
 
 
 
 
   
     return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
+      <div >
+        <div >
+          <div >
             <Chart
               options={options}
               series={series}

@@ -4,38 +4,19 @@ import AddAmountModal from './AddAmountModal';
 import WithdrawAmountModal from './WithdrawAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
 import { USDFormat } from '../libs/numberFormat';
-import config from '../config';
+
 
 function CurrentAlgos(props) {
   const [currentAlgos,setCurrentAlgos] = useState([]);
-  const [refresh,setRefresh] = useState(false);
 
-  const handleRefresh = () => {
-    console.log("Calling current algos refresh")
-    props.refresh()
-    setRefresh(!{refresh}.refresh);
-  }
+  
 
   useEffect(()=>{
-    const data = {"userid":props.userid}
-    async function FetchAlgos(){
-      await fetch(config.apiGateway.URL+"/getalgos", {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-      .then(response=>response.json())
-      .then(data=>{
-        console.log("Fetching Client Algos API")
-        console.log(data)
-        setCurrentAlgos(data)
-      })
-    }
-    FetchAlgos()
-  },[props.userid,refresh,props.refreshDash]);
+    console.log("XXXXX")
+    console.log(props.clientAlgos)
+    setCurrentAlgos(props.clientAlgos)
+    
+  },[props.userid,props.clientAlgos]);
 
   
   
@@ -60,13 +41,13 @@ function CurrentAlgos(props) {
                   <td>{USDFormat(item.pnl)}</td>
                   <Row>
                   <Col>
-                  <AddAmountModal userid={props.userid} name={item.name} refresh ={handleRefresh} min={5000} max={props.summary.amountfree}/>
+                  <AddAmountModal userid={props.userid} name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
                   </Col>  
                   <Col>
-                  <WithdrawAmountModal userid={props.userid} name={item.name} refresh ={handleRefresh} min={5000} max={item.amount}/>
+                  <WithdrawAmountModal userid={props.userid} name={item.name}  min={5000} max={item.amount} refresh={props.refresh}/>
                   </Col>
                   <Col>
-                  <AlgoDetailsModal name={item.name} userid={props.userid} refresh ={handleRefresh} />
+                  <AlgoDetailsModal name={item.name} userid={props.userid} />
                   </Col>
                   </Row>
                 </tr>

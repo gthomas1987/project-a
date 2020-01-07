@@ -36,7 +36,7 @@ function AlgoDetailsModal(props) {
         setTrades(data.trades)
       })
       .catch(error=>console.log(error));
-  },[props.name,props.userid]);
+  },[props.userid,props.name]);
   
 
   return (

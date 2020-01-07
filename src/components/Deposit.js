@@ -27,23 +27,49 @@ export function Deposit(props) {
     event.preventDefault();
     setShow(false)
     UpdateCash();
-    props.refresh()
   }
   
 
   const UpdateCash = async() => {
-    try {
-      const data = {"userid":props.userid,"amount":{amount}.amount,"action":"add"}
-      await fetch(config.apiGateway.URL+'/updateCash', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-    } catch (error) {
+    
+    console.log(config.apiGateway.URL)
+    const data = {"userid":props.userid,"amount":{amount}.amount,"action":"add"}
+    await fetch(config.apiGateway.URL+'/updateCash', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response=>response.json())
+      .then(data=>{
+        console.log("Deposit Update Cash API")
+        console.log(data)
+        props.refresh()
+        /*props.summary.cashDep=data.accountbalance
+        console.log(props)
+        props.summary={
+          summary:{
+            pnl:data.pnl,
+            npv:data.npv,
+            cashDep:data.accountbalance,
+            amountAlloc:data.amountallocated,
+            usagePer:data.usagelevel,
+            amountFree:data.amountfree
+          }
+        }*/
+
+        /*this.setState({
+          pnl:data.pnl,
+          npv:data.npv,
+          cashDep:data.accountbalance,
+          amountAlloc:data.amountallocated,
+          usagePer:data.usagelevel,
+          amountFree:data.amountfree
+        });
+        */
+      })
     }
-  }
   
 
   return (
