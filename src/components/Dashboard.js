@@ -15,10 +15,10 @@ class Dashboard extends React.Component{
       summary:{
         pnl:0.0,
         npv:0.0,
-        cashDep:0.0,
-        amountAlloc:0.0,
-        usagePer:"0.0%",
-        amountFree:0.0
+        accountbalance:0.0,
+        amountallocated:0.0,
+        usagelevel:"0.0%",
+        amountfree:0.0
       },
       npvChart:[],
       allAlgos:[],
