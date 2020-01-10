@@ -27,8 +27,13 @@ class Dashboard extends React.Component{
     this.refreshDashboard = this.refreshDashboard.bind(this)
   }
   
+  
   async refreshDashboard(){
+    function sleepSeconds(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
     const data = {"userid":this.state.userid}
+    await sleepSeconds(1000)
     await fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -52,7 +57,7 @@ class Dashboard extends React.Component{
       })
       .catch(error=>console.log(error));
   }
-
+  
   async componentDidMount(){
     
     await Auth.currentAuthenticatedUser({
