@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container,Row,Col,Accordion, Button, Card} from 'react-bootstrap';
+import {Spinner,Container,Row,Col,Accordion, Button, Card} from 'react-bootstrap';
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import AllAlgos from './AllAlgos'
@@ -11,6 +11,7 @@ class Dashboard extends React.Component{
   constructor(props){
     super(props);
     this.state={
+      isLoading:false,
       userid:"",
       summary:{
         pnl:0.0,
@@ -22,7 +23,8 @@ class Dashboard extends React.Component{
       },
       npvChart:[],
       allAlgos:[],
-      clientAlgos:[]
+      clientAlgos:[],
+      allAlgosDetails:{}
     };
     this.refreshDashboard = this.refreshDashboard.bind(this)
   }
@@ -34,6 +36,7 @@ class Dashboard extends React.Component{
     }
     const data = {"userid":this.state.userid}
     await sleepSeconds(1000)
+    console.log("refreshing dashboard")
     await fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -46,13 +49,15 @@ class Dashboard extends React.Component{
       .then(data=>{
         console.log("Fetching summary API")
         console.log(data)
-        console.log(data.allAlgos)
+        //console.log(data.allAlgosDetails)
         this.setState({
           summary:data.summary,
           npvChart:data.npvChart,
           allAlgos:data.allAlgos,
-          clientAlgos:data.clientAlgos
+          clientAlgos:data.clientAlgos,
+          allAlgosDetails:data.allAlgosDetails,
         });
+        this.setState({isLoading:true})
 
       })
       .catch(error=>console.log(error));
@@ -65,11 +70,13 @@ class Dashboard extends React.Component{
     })
     .then(user => {
       this.setState({userid:user.username})
+      
       }
     )
     .catch(err => console.log(err));
 
     this.refreshDashboard()
+    
     
   }
 
@@ -78,9 +85,13 @@ class Dashboard extends React.Component{
   
   
   render(){
-    console.log("Dashboard render")
-    return (
     
+    return (
+      
+      <div>
+        {this.state.isLoading
+        ?
+        <div>
       <Container>
         <br></br>
         <br></br>
@@ -101,18 +112,40 @@ class Dashboard extends React.Component{
               </Accordion.Toggle>
               </Col>
               <Col sm={2}>
-              <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/>
+              <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
               </Col>
               </Row>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body><CurrentAlgos userid={this.state.userid} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/></Card.Body>
+              <Card.Body><CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/></Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>
         </Col>
         </Row>
       </Container>
+      </div>
+      :
+      <div>
+        <Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Row>
+        <Col></Col>
+        <Col md="auto">
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </Col>
+        <Col></Col>
+        </Row>
+        </Container>
+      </div>
+      }
+      </div>
     );
   }
 }

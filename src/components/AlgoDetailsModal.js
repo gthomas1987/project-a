@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {Col,Container,Modal,Button,Form,Table,Card,Accordion} from 'react-bootstrap'
-import config from '../config';
 import AlgoPNLChart from './AlgoPNLChart';
 
 function AlgoDetailsModal(props) {
@@ -16,27 +15,14 @@ function AlgoDetailsModal(props) {
 
 
   useEffect(()=>{
+    console.log("Calling algo details..")
     
-    const data = {"algoname":props.name,"userid":props.userid}
-    fetch(config.apiGateway.URL+'/getalgodetails', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response=>response.json())
-      .then(data=>{
-        console.log(data)
-        console.log(data.pnlchart)
-        console.log(data.diffchart)
-        setChart1(data.pnlchart)
-        setChart2(data.diffchart)
-        setPositions(data.positions)
-        setTrades(data.trades)
-      })
-      .catch(error=>console.log(error));
-  },[props.userid,props.name]);
+    console.log(props.details[props.name])
+    setChart1(props.details[props.name].pnlchart)
+    setChart2(props.details[props.name].diffchart)
+    setPositions(props.details[props.name].positions)
+    setTrades(props.details[props.name].trades)
+  },[props.details,props.name]);
   
 
   return (
@@ -45,7 +31,7 @@ function AlgoDetailsModal(props) {
         Details
       </Button>
       <Form>
-      <Modal size="xl" show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>

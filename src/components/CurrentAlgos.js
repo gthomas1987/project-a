@@ -47,7 +47,7 @@ function CurrentAlgos(props) {
                   <WithdrawAmountModal userid={props.userid} name={item.name}  min={5000} max={item.amount} refresh={props.refresh}/>
                   </Col>
                   <Col>
-                  <AlgoDetailsModal name={item.name} userid={props.userid} />
+                  <AlgoDetailsModal name={item.name} userid={props.userid} details={props.allAlgosDetails}/>
                   </Col>
                   </Row>
                 </tr>

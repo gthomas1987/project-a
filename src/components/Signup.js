@@ -75,7 +75,7 @@ export default function Signup(props) {
         <br></br>
           <Row>
               <Col></Col>
-                <Col>
+                <Col md="auto">
                   <form onSubmit={handleConfirmationSubmit}>
                     <FormGroup controlId="confirmationCode" bsSize="large">
                       <FormLabel>Confirmation Code</FormLabel>

@@ -30,7 +30,7 @@ function Login(props) {
       <br></br>
       <Row>
         <Col></Col>
-        <Col>
+        <Col md="auto">
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>

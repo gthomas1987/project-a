@@ -50,7 +50,7 @@ function AllAlgos(props) {
                   <AddAmountModal userid={props.userid} name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
                   </Col>  
                   <Col>
-                  <AlgoDetailsModal name={item.name} userid={props.userid}  />
+                  <AlgoDetailsModal name={item.name} details={props.allAlgosDetails} userid={props.userid}  />
                   </Col>
                   </Row>
                 </tr>
