@@ -99,7 +99,6 @@ class Dashboard extends React.Component{
         <Row>
           <Col xs={4}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
           <Col><NPVChart npvChart={this.state.npvChart}/></Col>
-          <Col></Col>
         </Row>
         <Row>
           <Col>
