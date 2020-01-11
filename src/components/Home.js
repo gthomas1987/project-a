@@ -6,8 +6,8 @@ export default function Home(props) {
   return (
     <div className="Home">
       <div className="lander">
-        <h1>GT Algos</h1>
-        <Button href="/dashboard">Dashboard</Button>
+        
+        <Button variant="info" size="lg" href="/dashboard" block>Open Dashboard</Button>
         
       </div>
     </div>

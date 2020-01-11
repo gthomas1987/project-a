@@ -37,20 +37,20 @@ function App(props) {
 
   return (
     !isAuthenticating &&
-    <div>
-      <Navbar bg="light" variant="light">
-        <Navbar.Brand href="/">GT Algos</Navbar.Brand>
+    <div >
+      <Navbar bg="info" >
+        <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">GT Algos</Navbar.Brand>
           {isAuthenticated
           ? <>
           <Nav className="ml-auto">
-            <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
+            <Nav.Link style={{color: "white", fontWeight:"bold"}}  onClick={handleLogout}>Log Out</Nav.Link>
           </Nav>
             </>
           : <>
           <Navbar.Collapse>
             <Nav className="ml-auto">
-              <Nav.Link href="/signup">Sign Up</Nav.Link>
-              <Nav.Link href="/login">Log In</Nav.Link>
+              <Nav.Link style={{color: "white", fontWeight:"bold"}}  href="/signup">Sign Up</Nav.Link>
+              <Nav.Link style={{color: "white", fontWeight:"bold"}} href="/login">Log In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </>

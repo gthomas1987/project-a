@@ -24,7 +24,7 @@ function CurrentAlgos(props) {
     
     <div>
         
-        <Table striped bordered hover>
+        <Table striped bordered hover >
           <thead>
             <tr>
               <th>Name</th>

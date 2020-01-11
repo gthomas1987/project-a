@@ -45,7 +45,7 @@ function Login(props) {
               <Form.Control value={password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
             </Form.Group>
             <br></br>
-            <Button  disabled={!validateForm()} variant="primary" type="submit">
+            <Button variant="info" disabled={!validateForm()} type="submit">
               Submit
             </Button>
           </Form>

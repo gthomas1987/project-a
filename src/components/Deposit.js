@@ -74,7 +74,7 @@ export function Deposit(props) {
 
   return (
     <>
-      <Button variant="outline-success" onClick={handleShow}>
+      <Button size="sm" variant="outline-success" onClick={handleShow}>
         Deposit
       </Button>
       <Form>

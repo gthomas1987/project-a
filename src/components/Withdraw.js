@@ -25,7 +25,6 @@ export function Withdraw(props) {
     event.preventDefault();
     setShow(false)
     UpdateCash();
-    props.refresh()
   }
 
   
@@ -47,7 +46,7 @@ export function Withdraw(props) {
 
   return (
     <>
-      <Button variant="outline-danger" onClick={handleShow}>
+      <Button size="sm" variant="outline-danger" onClick={handleShow}>
         Withdraw
       </Button>
       <Form>

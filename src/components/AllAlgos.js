@@ -29,7 +29,7 @@ function AllAlgos(props) {
           <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Table striped bordered hover>
+        <Table size="sm" striped bordered hover>
           <thead>
             <tr>
               <th>Name</th>

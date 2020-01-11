@@ -1,11 +1,12 @@
 import React from 'react';
-import {Spinner,Container,Row,Col,Accordion, Button, Card} from 'react-bootstrap';
+import {Spinner,Container,Row,Col, Card} from 'react-bootstrap';
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import AllAlgos from './AllAlgos'
 import config from '../config';
 import { Auth } from "aws-amplify";
 import NPVChart from './NPVChart'
+
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -96,31 +97,23 @@ class Dashboard extends React.Component{
         <br></br>
         <br></br>
         <Row>
-          <Col><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
+          <Col xs={4}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
           <Col><NPVChart npvChart={this.state.npvChart}/></Col>
+          <Col></Col>
         </Row>
         <Row>
           <Col>
         <br></br>
-        <Accordion defaultActiveKey="0">
-          <Card>
+        
+          <Card >
             <Card.Header>
-              <Row>
-              <Col sm={10}>
-              <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                Algos
-              </Accordion.Toggle>
-              </Col>
-              <Col sm={2}>
-              <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
-              </Col>
-              </Row>
+            <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
             </Card.Header>
-            <Accordion.Collapse eventKey="0">
+            
               <Card.Body><CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/></Card.Body>
-            </Accordion.Collapse>
+            
           </Card>
-        </Accordion>
+        
         </Col>
         </Row>
       </Container>

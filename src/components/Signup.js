@@ -141,6 +141,7 @@ export default function Signup(props) {
                         block
                         type="submit"
                         bsSize="large"
+                        variant="info"
                         isLoading={isLoading}
                         disabled={!validateForm()}
                         >
