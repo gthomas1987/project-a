@@ -1,8 +1,5 @@
-.container{
-  border: 2px solid black; 
-  width:600px; /* screen width */ 
-  height:200px; /* screen height */ 
-  background-image: url(./BackgroundPic.jpg);
-  background-repeat: no-repeat; 
-  background-size: cover; 
-}
+
+
+.roundrect {
+  border-radius: 5px;
+  }

@@ -3,7 +3,7 @@ import Routes from "./Routes";
 import {Navbar,Nav} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
 import { withRouter} from "react-router-dom";
-//import './App.css';
+import './App.css';
 
 function App(props) {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
@@ -39,7 +39,13 @@ function App(props) {
     !isAuthenticating &&
     <div >
       <Navbar bg="info" >
-        <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">GT Algos</Navbar.Brand>
+        <Navbar.Brand style={{color: "black", fontWeight:"bold"}} href="/">
+        <img className="roundrect"
+        alt=""
+        src="/gt_logo.jpg"
+        width="100"
+        height="30"
+      />{' '}Algos</Navbar.Brand>
           {isAuthenticated
           ? <>
           <Nav className="ml-auto">

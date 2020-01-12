@@ -6,10 +6,10 @@
       URL: "http://127.0.0.1:5000"
     },
     cognito: {
-      REGION: "us-east-2",
-      USER_POOL_ID: "us-east-2_IAxfZWin1",
-      APP_CLIENT_ID: "7d7tlebf188i34520u40o12lhu",
-      IDENTITY_POOL_ID: "us-east-2:8282ea73-1afb-4ab0-89e1-5d3da4ac214f"
+      REGION: "ap-southeast-1",
+      USER_POOL_ID: "ap-southeast-1_wNiJLRUMY",
+      APP_CLIENT_ID: "2jas8iv9bsh1fte9ljgshi5d20",
+      IDENTITY_POOL_ID: "ap-southeast-1:a8fd1e6f-bdca-45cd-aa6f-36c2a0114eb5"
     }
   };
   
@@ -18,10 +18,10 @@
       URL: "https://server.gtalgos.com"
     },
     cognito: {
-      REGION: "us-east-2",
-      USER_POOL_ID: "us-east-2_IAxfZWin1",
-      APP_CLIENT_ID: "7d7tlebf188i34520u40o12lhu",
-      IDENTITY_POOL_ID: "us-east-2:8282ea73-1afb-4ab0-89e1-5d3da4ac214f"
+      REGION: "ap-southeast-1",
+      USER_POOL_ID: "ap-southeast-1_wNiJLRUMY",
+      APP_CLIENT_ID: "2jas8iv9bsh1fte9ljgshi5d20",
+      IDENTITY_POOL_ID: "ap-southeast-1:a8fd1e6f-bdca-45cd-aa6f-36c2a0114eb5"
     }
   };
   

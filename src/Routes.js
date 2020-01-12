@@ -11,7 +11,7 @@ export default function Routes({appProps}) {
   return (
     <Switch>
         <Route path="/" exact component={Home}  />
-        <Route path="/signup" exact component={Signup} />
+        <AppliedRoute path="/signup" exact component={Signup} appProps={appProps}/>
         <AppliedRoute path="/login" exact component={Login} appProps={appProps} />
         <AppliedRoute path="/dashboard" exact component={Dashboard} appProps={appProps} />
         <AppliedRoute path="/index.html" exact component={Dashboard} appProps={appProps} />

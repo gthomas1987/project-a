@@ -89,8 +89,9 @@ export default function Signup(props) {
                     </FormGroup>
                     <LoaderButton
                       block
+                      variant="info"
                       type="submit"
-                      bsSize="large"
+                      bssize="large"
                       isLoading={isLoading}
                       disabled={!validateConfirmationForm()}
                     >
@@ -112,7 +113,7 @@ export default function Signup(props) {
                 <Col></Col>
                 <Col>
                     <form onSubmit={handleSubmit}>
-                        <FormGroup controlId="email" bsSize="large">
+                        <FormGroup controlId="email" bssize="large">
                         <FormLabel>Email</FormLabel>
                         <FormControl
                             autoFocus
@@ -121,7 +122,7 @@ export default function Signup(props) {
                             onChange={handleFieldChange}
                         />
                         </FormGroup>
-                        <FormGroup controlId="password" bsSize="large">
+                        <FormGroup controlId="password" bssize="large">
                         <FormLabel>Password</FormLabel>
                         <FormControl
                             type="password"
@@ -129,7 +130,7 @@ export default function Signup(props) {
                             onChange={handleFieldChange}
                         />
                         </FormGroup>
-                        <FormGroup controlId="confirmPassword" bsSize="large">
+                        <FormGroup controlId="confirmPassword" bssize="large">
                         <FormLabel>Confirm Password</FormLabel>
                         <FormControl
                             type="password"
@@ -140,7 +141,7 @@ export default function Signup(props) {
                         <LoaderButton
                         block
                         type="submit"
-                        bsSize="large"
+                        bssize="large"
                         variant="info"
                         isLoading={isLoading}
                         disabled={!validateForm()}
