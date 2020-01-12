@@ -7,9 +7,8 @@ import config from '../config';
 import { Auth } from "aws-amplify";
 import NPVChart from './NPVChart'
 import AllocationChart from './AllocationChart'
-import TopAlgosChart from './TopAlgosChart';
-import BottomAlgosChart from './BottomAlgosChart';
 import './Dashboard.css';
+
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -98,13 +97,13 @@ class Dashboard extends React.Component{
         {this.state.isLoaded
         ?
         <div>
+          
       <Container >
         <br></br>
         <Row>
           <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
-          <Col><AllocationChart allocation={this.state.allocationDetails}/>
-          <TopAlgosChart />
-          <BottomAlgosChart />
+          <Col xs={5}>
+          <AllocationChart allocation={this.state.allocationDetails}/>
           </Col>
           <NPVChart npvChart={this.state.npvChart}/>
         </Row>

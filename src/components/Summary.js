@@ -8,8 +8,9 @@ import {Withdraw} from './Withdraw'
 function Summary(props) {
     return (
       <div>
-        
+          <h4>Overview</h4>
           <Table variant="outline-light" striped bordered hover>
+          
             <tbody>
               
               <tr>

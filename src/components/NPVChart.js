@@ -12,9 +12,22 @@ function NPVChart(props){
     
     
     setOptions({
+      
       dataLabels: {
         enabled: false
       },
+      title: {
+        text: 'NPV',
+        align: 'left',
+        margin: 10,
+        offsetX: 0,
+        offsetY: 0,
+        floating: false,
+        style: {
+          fontSize:  '24px'
+        },
+      },
+      
       chart: {
         zoom: {
             enabled: true,
@@ -57,9 +70,7 @@ function NPVChart(props){
 
   
     return (
-      <div >
-        <div >
-          <div >
+          <div  id="chart">
             <Chart
               options={options}
               series={series}
@@ -67,8 +78,6 @@ function NPVChart(props){
               height="340"
             />
           </div>
-        </div>
-      </div>
     );
   }
 

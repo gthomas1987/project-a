@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import Routes from "./Routes";
-import {Navbar,Nav} from 'react-bootstrap';
+import {Container,Navbar,Nav} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
 import { withRouter} from "react-router-dom";
 import './App.css';
+import SideNavigation from './components/SideNavigation'
 
 function App(props) {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
@@ -38,14 +39,18 @@ function App(props) {
   return (
     !isAuthenticating &&
     <div >
+      
+        
+        <SideNavigation/>
       <Navbar bg="info" >
         <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img className="roundrect"
         alt=""
         src="/gt_algo_logo5.jpg"
         width="120"
-        height="50"
-      />{' '}Algos</Navbar.Brand>
+        height="38"
+      /></Navbar.Brand>
           {isAuthenticated
           ? <>
           <Nav className="ml-auto">
@@ -62,7 +67,9 @@ function App(props) {
           </>
           }
         </Navbar>
+        <Container>
       <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
+      </Container>
     </div>
   );
 }

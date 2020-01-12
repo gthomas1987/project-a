@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import {Button,Modal} from 'react-bootstrap';
+import {Container,Row,Col,Spinner} from 'react-bootstrap';
 import config from '../config';
 
 class TopAlgosChart extends React.Component {
@@ -81,27 +81,38 @@ class TopAlgosChart extends React.Component {
     .catch(error=>console.log(error));
   }
 
+  componentDidMount(){
+    this.runQuery()
+  }
+
   render() {
     return (
+      
       <div id="chart">
-      <Button size="sm" variant="primary" onClick={this.runQuery} block  >
-        Top Performing Algos
-      </Button>
-      <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Top Performing Algos</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+      {this.state.show
+        ?
         <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
-          
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      </div>
+        :
+      <div>
+        <Container>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Row>
+        <Col></Col>
+        <Col md="auto">
+          <Spinner animation="border" variant ="info" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </Col>
+        <Col></Col>
+        </Row>
+        </Container>
+        </div>
+        }
+        </div>
     );
   }
 }

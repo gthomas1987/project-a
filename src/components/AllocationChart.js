@@ -23,6 +23,17 @@ class AllocationChart extends React.Component {
           this.setState({
             series:Object.values(this.props.allocation),
             options: {
+              title: {
+                text: 'Allocation',
+                align: 'center',
+                margin: 10,
+                offsetX: 0,
+                offsetY: 0,
+                floating: false,
+                style: {
+                  fontSize:  '24px'
+                },
+              },
               labels:Object.keys(this.props.allocation),
               legend: {
                 show: false,
