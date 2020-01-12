@@ -100,25 +100,14 @@ class Dashboard extends React.Component{
         <div>
       <Container >
         <br></br>
-        <Card style={{ boxShadow: "1px 3px 1px #9E9E9E" }}>
-        <Card.Title>
-          <Row>
-          <Col xs={5}><div class="card-body align-items-center d-flex justify-content-center">Overview</div></Col>
-          <Col><div class="card-body align-items-center d-flex justify-content-center">Allocation</div></Col>
-          <Col><div class="card-body align-items-center d-flex justify-content-center">NPV Chart</div></Col>
-          </Row>
-        </Card.Title>
-        <Card.Body>
         <Row>
-          <Col xs={5}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
+          <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
           <Col><AllocationChart allocation={this.state.allocationDetails}/>
           <TopAlgosChart />
           <BottomAlgosChart />
           </Col>
-          <Col><NPVChart npvChart={this.state.npvChart}/></Col>
+          <NPVChart npvChart={this.state.npvChart}/>
         </Row>
-        </Card.Body>
-        </Card>
         <Row>
           <Col>
         <br></br>
