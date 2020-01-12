@@ -12,8 +12,6 @@ function CurrentAlgos(props) {
   
 
   useEffect(()=>{
-    console.log("XXXXX")
-    console.log(props.clientAlgos)
     setCurrentAlgos(props.clientAlgos)
     
   },[props.userid,props.clientAlgos]);

@@ -15,9 +15,6 @@ function AlgoDetailsModal(props) {
 
 
   useEffect(()=>{
-    console.log("Calling algo details..")
-    
-    console.log(props.details[props.name])
     setChart1(props.details[props.name].pnlchart)
     setChart2(props.details[props.name].diffchart)
     setPositions(props.details[props.name].positions)

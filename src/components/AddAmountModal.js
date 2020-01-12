@@ -48,7 +48,7 @@ function AddAmountModal(props) {
 
   return (
     <>
-      <Button size="sm" variant="success" onClick={handleShow} block>
+      <Button size="sm" variant="outline-success" onClick={handleShow} block>
         Add
       </Button>
       <Form>

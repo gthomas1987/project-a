@@ -50,7 +50,7 @@ function WithdrawAmountModal(props) {
 
   return (
     <>
-      <Button size="sm" variant="danger" onClick={handleShow} block>
+      <Button size="sm" variant="outline-danger" onClick={handleShow} block>
         Withdraw
       </Button>
 

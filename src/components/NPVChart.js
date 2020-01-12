@@ -37,7 +37,9 @@ function NPVChart(props){
         type: 'datetime',
         labels: {
           formatter: function (value, timestamp) {
-            return new Date(timestamp) // The formatter function overrides format property
+            const formattedDate = new Date(timestamp).toDateString()
+            const [, month, day, year] = formattedDate.split(' ')
+            return [day, month, year].join('-')
           }, 
         }
       }
@@ -62,7 +64,7 @@ function NPVChart(props){
               options={options}
               series={series}
               type="line"
-              width="500"
+              height="340"
             />
           </div>
         </div>

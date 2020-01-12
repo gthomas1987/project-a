@@ -6,13 +6,16 @@ import AllAlgos from './AllAlgos'
 import config from '../config';
 import { Auth } from "aws-amplify";
 import NPVChart from './NPVChart'
-
+import AllocationChart from './AllocationChart'
+import TopAlgosChart from './TopAlgosChart';
+import BottomAlgosChart from './BottomAlgosChart';
+import './Dashboard.css';
 
 class Dashboard extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      isLoading:false,
+      isLoaded:false,
       userid:"",
       summary:{
         pnl:0.0,
@@ -25,7 +28,8 @@ class Dashboard extends React.Component{
       npvChart:[],
       allAlgos:[],
       clientAlgos:[],
-      allAlgosDetails:{}
+      allAlgosDetails:{},
+      allocationDetails:{}
     };
     this.refreshDashboard = this.refreshDashboard.bind(this)
   }
@@ -57,8 +61,9 @@ class Dashboard extends React.Component{
           allAlgos:data.allAlgos,
           clientAlgos:data.clientAlgos,
           allAlgosDetails:data.allAlgosDetails,
+          allocationDetails:data.allocation,
         });
-        this.setState({isLoading:true})
+        this.setState({isLoaded:true})
 
       })
       .catch(error=>console.log(error));
@@ -89,22 +94,36 @@ class Dashboard extends React.Component{
     
     return (
       
-      <div>
-        {this.state.isLoading
+      <div >
+        {this.state.isLoaded
         ?
         <div>
-      <Container>
+      <Container >
         <br></br>
-        <br></br>
+        <Card style={{ boxShadow: "1px 3px 1px #9E9E9E" }}>
+        <Card.Title>
+          <Row>
+          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">Overview</div></Col>
+          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">Allocation</div></Col>
+          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">NPV Chart</div></Col>
+          </Row>
+        </Card.Title>
+        <Card.Body>
         <Row>
-          <Col><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
-          <Col><NPVChart npvChart={this.state.npvChart}/></Col>
+          <Col xs={4}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
+          <Col ><AllocationChart allocation={this.state.allocationDetails}/>
+          <TopAlgosChart />
+          <BottomAlgosChart />
+          </Col>
+          <Col ><NPVChart npvChart={this.state.npvChart}/></Col>
         </Row>
+        </Card.Body>
+        </Card>
         <Row>
           <Col>
         <br></br>
         
-          <Card >
+          <Card style={{ boxShadow: "1px 3px 1px #9E9E9E" }}>
             <Card.Header>
             <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
             </Card.Header>

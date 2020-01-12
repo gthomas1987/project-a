@@ -9,7 +9,7 @@ function Summary(props) {
     return (
       <div>
         
-          <Table striped bordered hover>
+          <Table variant="dark" striped bordered hover>
             <tbody>
               
               <tr>
