@@ -21,7 +21,7 @@ function AllAlgos(props) {
   return (
     
     <div>
-      <Button variant="info" onClick={handleShow}>
+      <Button variant="info" onClick={handleShow} block>
         Add New Algo
       </Button>
       <Modal size="lg" show={show} onHide={handleClose}>

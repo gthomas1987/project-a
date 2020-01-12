@@ -1,5 +1,5 @@
 import React from 'react';
-import {Spinner,Container,Row,Col} from 'react-bootstrap';
+import {Card,Spinner,Container,Row,Col} from 'react-bootstrap';
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import AllAlgos from './AllAlgos'
@@ -99,24 +99,33 @@ class Dashboard extends React.Component{
         <div>
           
       <Container >
+        <Card bg="light">
         <br></br>
         <Row>
+          <Col>
           <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
-          
+          </Col>
+          <Col lg="5" md="5" sm="auto" xl="5" xs="auto">
           <AllocationChart allocation={this.state.allocationDetails}/>
-          
+          </Col>
+          <Col>
           <NPVChart npvChart={this.state.npvChart}/>
+          </Col>
         </Row>
-        
+        </Card>
         <br></br>
         
             <Row>
+              <Col>
             <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
+            </Col>
             </Row>
             <Row>
+              <Col>
             <CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/>
+            </Col>
             </Row>
-        
+            
       </Container>
       </div>
       :
