@@ -26,7 +26,7 @@ function AllAlgos(props) {
       </Button>
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
+          <Modal.Title>Add New Algo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Table size="sm" striped bordered hover>

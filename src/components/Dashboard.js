@@ -103,19 +103,19 @@ class Dashboard extends React.Component{
         <Card style={{ boxShadow: "1px 3px 1px #9E9E9E" }}>
         <Card.Title>
           <Row>
-          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">Overview</div></Col>
-          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">Allocation</div></Col>
-          <Col xs={4}><div class="card-body align-items-center d-flex justify-content-center">NPV Chart</div></Col>
+          <Col xs={5}><div class="card-body align-items-center d-flex justify-content-center">Overview</div></Col>
+          <Col><div class="card-body align-items-center d-flex justify-content-center">Allocation</div></Col>
+          <Col><div class="card-body align-items-center d-flex justify-content-center">NPV Chart</div></Col>
           </Row>
         </Card.Title>
         <Card.Body>
         <Row>
-          <Col xs={4}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
-          <Col ><AllocationChart allocation={this.state.allocationDetails}/>
+          <Col xs={5}><Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} /></Col>
+          <Col><AllocationChart allocation={this.state.allocationDetails}/>
           <TopAlgosChart />
           <BottomAlgosChart />
           </Col>
-          <Col ><NPVChart npvChart={this.state.npvChart}/></Col>
+          <Col><NPVChart npvChart={this.state.npvChart}/></Col>
         </Row>
         </Card.Body>
         </Card>
@@ -147,7 +147,7 @@ class Dashboard extends React.Component{
         <Row>
         <Col></Col>
         <Col md="auto">
-          <Spinner animation="border" role="status">
+          <Spinner animation="border" variant ="info" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner>
         </Col>
