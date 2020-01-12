@@ -47,7 +47,7 @@ function App(props) {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img className="roundrect"
         alt=""
-        src="/gt_algo_logo5.jpg"
+        src="/gt_algo_logo6.jpg"
         width="120"
         height="38"
       /></Navbar.Brand>
