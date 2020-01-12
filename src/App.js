@@ -39,12 +39,12 @@ function App(props) {
     !isAuthenticating &&
     <div >
       <Navbar bg="info" >
-        <Navbar.Brand style={{color: "black", fontWeight:"bold"}} href="/">
+        <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">
         <img className="roundrect"
         alt=""
-        src="/gt_logo.jpg"
-        width="100"
-        height="30"
+        src="/gt_algo_logo5.jpg"
+        width="120"
+        height="50"
       />{' '}Algos</Navbar.Brand>
           {isAuthenticated
           ? <>
