@@ -22,10 +22,10 @@ function SideNavigation(props){
                 }}
                 >
                 <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="/dashboard">
+                <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="/">
                         <NavIcon>
-                            <FaHome/>
+                            <h2><FaHome/></h2>
                         </NavIcon>
                         <NavText>
                             Home
@@ -33,34 +33,19 @@ function SideNavigation(props){
                     </NavItem>
                     <NavItem eventKey="/dashboard">
                         <NavIcon>
-                            <GoDashboard/>
+                            <h2><GoDashboard/></h2>
                         </NavIcon>
                         <NavText>
                             Dashboard
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/algos">
+                    <NavItem eventKey="/algos/all">
                         <NavIcon>
-                        <GiProcessor/>
+                        <h2><GiProcessor/></h2>
                         </NavIcon>
                         <NavText>
                             Algos
                         </NavText>
-                        <NavItem eventKey="/algos/all">
-                            <NavText>
-                                All
-                            </NavText>
-                        </NavItem>
-                        <NavItem eventKey="/algos/top">
-                            <NavText>
-                                Top
-                            </NavText>
-                        </NavItem>
-                        <NavItem eventKey="/algos/bottom">
-                            <NavText>
-                                Bottom
-                            </NavText>
-                        </NavItem>
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
