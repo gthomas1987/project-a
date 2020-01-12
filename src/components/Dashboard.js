@@ -1,5 +1,5 @@
 import React from 'react';
-import {Spinner,Container,Row,Col, Card} from 'react-bootstrap';
+import {Spinner,Container,Row,Col} from 'react-bootstrap';
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import AllAlgos from './AllAlgos'
@@ -102,26 +102,21 @@ class Dashboard extends React.Component{
         <br></br>
         <Row>
           <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
-          <Col xs={5}>
+          
           <AllocationChart allocation={this.state.allocationDetails}/>
-          </Col>
+          
           <NPVChart npvChart={this.state.npvChart}/>
         </Row>
-        <Row>
-          <Col>
+        
         <br></br>
         
-          <Card style={{ boxShadow: "1px 3px 1px #9E9E9E" }}>
-            <Card.Header>
+            <Row>
             <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
-            </Card.Header>
-            
-              <Card.Body><CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/></Card.Body>
-            
-          </Card>
+            </Row>
+            <Row>
+            <CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/>
+            </Row>
         
-        </Col>
-        </Row>
       </Container>
       </div>
       :

@@ -25,7 +25,7 @@ export default function Home(props) {
           <Card.Text>
             
           </Card.Text>
-          <Button variant="info" size="lg" href="/algos" >Go To Algos</Button>
+          <Button variant="info" size="lg" href="/algos/all" >Go To Algos</Button>
         </Card.Body>
       </Card>
         

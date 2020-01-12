@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Routes from "./Routes";
-import {Container,Navbar,Nav} from 'react-bootstrap';
+import {Navbar,Nav} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
 import { withRouter} from "react-router-dom";
 import './App.css';
@@ -41,7 +41,7 @@ function App(props) {
     <div >
       
         
-        <SideNavigation/>
+        
       <Navbar bg="info" >
         <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,9 +67,13 @@ function App(props) {
           </>
           }
         </Navbar>
-        <Container>
-      <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
-      </Container>
+        
+          <SideNavigation/>
+          <div className="Home">
+            <div className="sidenav">
+          <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
+          </div>
+          </div>
     </div>
   );
 }
