@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
 import config from '../config';
-
+import './Dashboard.css';
 
 export function Deposit(props) {
   
@@ -77,14 +77,14 @@ export function Deposit(props) {
       <Button size="sm" variant="outline-success" onClick={handleShow}>
         Deposit
       </Button>
-      <Form>
-      <Modal show={show} onHide={handleClose}>
+      <Form >
+      <Modal className="my-modal" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
+          <Modal.Title className="modal-title" >Deposit</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           
-          <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Group className="modal-title" controlId="exampleForm.ControlSelect1">
             <Form.Label>Amount To Deposit</Form.Label>
             <Form.Control onChange = {AmountValue} as="select">
               {items.map((item,key)=>(

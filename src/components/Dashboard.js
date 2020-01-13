@@ -93,23 +93,22 @@ class Dashboard extends React.Component{
     
     return (
       
-      <div >
+      <div style={{'background-color': '#000000'}} >
         {this.state.isLoaded
         ?
-        <div>
+        <div style={{'background-color': '#000000'}}>
           
-      <Container >
-        <Card bg="light">
-        <br></br>
+      
+        <Card bg="dark">
         <Row>
           <Col>
           <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
           </Col>
-          <Col lg="5" md="5" sm="auto" xl="5" xs="auto">
-          <AllocationChart allocation={this.state.allocationDetails}/>
-          </Col>
           <Col>
           <NPVChart npvChart={this.state.npvChart}/>
+          </Col>
+          <Col>
+          <AllocationChart allocation={this.state.allocationDetails}/>
           </Col>
         </Row>
         </Card>
@@ -126,10 +125,10 @@ class Dashboard extends React.Component{
             </Col>
             </Row>
             
-      </Container>
+      
       </div>
       :
-      <div>
+      <div style={{'background-color': '#000000'}}>
         <Container>
         <br></br>
         <br></br>
@@ -144,6 +143,25 @@ class Dashboard extends React.Component{
           </Spinner>
         </Col>
         <Col></Col>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
         </Row>
         </Container>
       </div>

@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Col,Container,Modal,Button,Form,Table,Card,Accordion} from 'react-bootstrap'
 import AlgoPNLChart from './AlgoPNLChart';
+import './Dashboard.css';
 
 function AlgoDetailsModal(props) {
   
@@ -28,9 +29,9 @@ function AlgoDetailsModal(props) {
         Details
       </Button>
       <Form>
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal className="my-modal" size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
+          <Modal.Title className="modal-title" >{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Container>
@@ -40,8 +41,8 @@ function AlgoDetailsModal(props) {
         </Col>
         <Col></Col>
         </Container>
-        <Accordion defaultActiveKey="0">
-          <Card>
+        <Accordion   defaultActiveKey="0">
+          <Card bg="dark" >
             <Card.Header>
               
               <Accordion.Toggle as={Button} variant="link" eventKey="0">
@@ -50,7 +51,7 @@ function AlgoDetailsModal(props) {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-              <Table striped bordered hover>
+              <Table variant="dark" striped bordered hover>
                 <thead>
                   <tr>
                     <th>Security</th>
@@ -84,7 +85,7 @@ function AlgoDetailsModal(props) {
               </Card.Body>
             </Accordion.Collapse>
           </Card>
-          <Card>
+          <Card bg="dark">
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey="1">
                 Trades
@@ -92,7 +93,7 @@ function AlgoDetailsModal(props) {
             </Card.Header>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
-                <Table striped bordered hover>
+                <Table variant="dark" striped bordered hover>
                   <thead>
                     <tr>
                       <th>Security</th>

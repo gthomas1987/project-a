@@ -15,6 +15,7 @@ function AlgoPNLChart(props){
         enabled: false
       },
       chart: {
+        foreColor: '#ffffff',
         zoom: {
             enabled: true,
             type: 'x',  

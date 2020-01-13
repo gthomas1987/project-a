@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
 import config from '../config';
+import './Dashboard.css';
 
 function AddAmountModal(props) {
   
@@ -52,13 +53,13 @@ function AddAmountModal(props) {
         Add
       </Button>
       <Form>
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="my-modal" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
+          <Modal.Title className="modal-title">{props.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
           
-          <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Group className="modal-title" controlId="exampleForm.ControlSelect1">
             <Form.Label>Amount To Add</Form.Label>
             <Form.Control defaultValue="5000" onChange = {AmountValue} as="select">
               {items.map((item,key)=>(

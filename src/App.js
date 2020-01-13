@@ -42,26 +42,22 @@ function App(props) {
       
         
         
-      <Navbar bg="info" >
-        <Navbar.Brand style={{color: "white", fontWeight:"bold"}} href="/">
+      <Navbar style={{'background-color': '#000000'}}  >
+        <Navbar.Brand style={{color:'white',fontWeight:"bold"}} href="/">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img className="roundrect"
-        alt=""
-        src="/gt_algo_logo6.jpg"
-        width="120"
-        height="38"
-      /></Navbar.Brand>
+        GT ALGOS
+      </Navbar.Brand>
           {isAuthenticated
           ? <>
           <Nav className="ml-auto">
-            <Nav.Link style={{color: "white", fontWeight:"bold"}}  onClick={handleLogout}>Log Out</Nav.Link>
+            <Nav.Link style={{color:'white',fontWeight:"bold"}}  onClick={handleLogout}>Log Out</Nav.Link>
           </Nav>
             </>
           : <>
           <Navbar.Collapse>
             <Nav className="ml-auto">
-              <Nav.Link style={{color: "white", fontWeight:"bold"}}  href="/signup">Sign Up</Nav.Link>
-              <Nav.Link style={{color: "white", fontWeight:"bold"}} href="/login">Log In</Nav.Link>
+              <Nav.Link style={{color:'white',fontWeight:"bold"}}  href="/signup">Sign Up</Nav.Link>
+              <Nav.Link style={{color:'white',fontWeight:"bold"}} href="/login">Log In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </>
@@ -69,8 +65,8 @@ function App(props) {
         </Navbar>
         
           <SideNavigation/>
-          <div className="Home">
-            <div className="sidenav">
+          <div style={{'background-color': '#000000'}}  className="Home">
+            <div style={{'background-color': '#000000'}}  className="sidenav">
           <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
           </div>
           </div>

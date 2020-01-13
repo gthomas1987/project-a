@@ -3,6 +3,7 @@ import {Button,Modal,Table,Row,Col} from 'react-bootstrap';
 import AddAmountModal from './AddAmountModal';
 import AlgoDetailsModal from './AlgoDetailsModal';
 import { USDFormat } from '../libs/numberFormat';
+import './Dashboard.css';
 
 
 function AllAlgos(props) {
@@ -21,15 +22,15 @@ function AllAlgos(props) {
   return (
     
     <div>
-      <Button variant="info" onClick={handleShow} block>
+      <Button variant="primary" onClick={handleShow} block>
         Add New Algo
       </Button>
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal className="my-modal" size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add New Algo</Modal.Title>
+          <Modal.Title className="modal-title">Add New Algo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Table size="sm" striped bordered hover>
+        <Table variant="dark" size="sm" striped bordered hover>
           <thead>
             <tr>
               <th>Name</th>

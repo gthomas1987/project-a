@@ -10,7 +10,7 @@ function SideNavigation(props){
     const [show,setShow] = useState(false);
     return (
         <div>
-            <SideNav expanded={show} style={{'background-color': '#17A2B8'}}
+            <SideNav expanded={show} style={{'background-color': '#000000'}}
                 onSelect={(selected) => {
                     setShow(false)
                     console.log(selected)

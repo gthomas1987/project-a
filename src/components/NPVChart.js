@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 //import ApexCharts from 'apexcharts'
 
 import Chart from "react-apexcharts";
-
+import {Alert} from 'react-bootstrap'
 function NPVChart(props){
 
   const [options,setOptions] = useState({});
@@ -15,20 +15,9 @@ function NPVChart(props){
       
       dataLabels: {
         enabled: false
-      },
-      title: {
-        text: 'NPV',
-        align: 'left',
-        margin: 10,
-        offsetX: 0,
-        offsetY: 0,
-        floating: false,
-        style: {
-          fontSize:  '24px'
-        },
-      },
-      
+      },      
       chart: {
+        foreColor: '#ffffff',
         zoom: {
             enabled: true,
             type: 'x',  
@@ -71,10 +60,12 @@ function NPVChart(props){
   
     return (
           <div  id="chart">
+            <Alert variant="dark">NPV Chart</Alert>
             <Chart
               options={options}
               series={series}
               type="line"
+              width="400"
               height="340"
             />
           </div>

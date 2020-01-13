@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
+import {Table,Alert} from 'react-bootstrap';
 import {USDFormat} from '../libs/numberFormat'
 import {Deposit} from './Deposit'
 import {Withdraw} from './Withdraw'
@@ -8,8 +8,8 @@ import {Withdraw} from './Withdraw'
 function Summary(props) {
     return (
       <div>
-          <h4>Overview</h4>
-          <Table variant="outline-light" striped bordered hover>
+          <Alert variant="dark">Overview</Alert>
+          <Table variant="dark" striped bordered hover>
           
             <tbody>
               

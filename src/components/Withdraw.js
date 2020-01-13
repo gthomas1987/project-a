@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
 import config from '../config';
+import './Dashboard.css';
 
 export function Withdraw(props) {
   
@@ -50,13 +51,13 @@ export function Withdraw(props) {
         Withdraw
       </Button>
       <Form>
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="my-modal"  show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
+          <Modal.Title className="modal-title" >Withdraw</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           
-          <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Group  className="modal-title" controlId="exampleForm.ControlSelect1">
             <Form.Label>Amount To Withdraw</Form.Label>
             <Form.Control onChange = {AmountValue} as="select">
               {items.map((item,key)=>(

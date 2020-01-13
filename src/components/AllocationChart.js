@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import {Alert} from 'react-bootstrap'
 
 class AllocationChart extends React.Component {
         constructor(props) {
@@ -11,6 +12,7 @@ class AllocationChart extends React.Component {
             options: {
               labels: [],
               chart: {
+                foreColor: '#ffffff',
                 type: 'donut',
               }
             },
@@ -23,24 +25,16 @@ class AllocationChart extends React.Component {
           this.setState({
             series:Object.values(this.props.allocation),
             options: {
-              title: {
-                text: 'Allocation',
-                align: 'center',
-                margin: 10,
-                offsetX: 0,
-                offsetY: 0,
-                floating: false,
-                style: {
-                  fontSize:  '24px'
+              labels:Object.keys(this.props.allocation),
+              theme: {
+                monochrome: {
+                    enabled: true,
                 },
               },
-              labels:Object.keys(this.props.allocation),
+              
               legend: {
                 show: false,
               },
-              chart: {
-                type: 'donut',
-              }
             },
             
           })
@@ -50,7 +44,8 @@ class AllocationChart extends React.Component {
         render() {
           return (
             <div id="chart">
-              <ReactApexChart options={this.state.options} series={this.state.series} type="donut" />
+              <Alert variant="dark">Allocation</Alert>
+              <ReactApexChart options={this.state.options} series={this.state.series} type="pie" />
             </div>
           );
         }
