@@ -6,7 +6,7 @@ export default function Home(props) {
   return (
     <div className="Home">
       <div className="lander">
-      <Card>
+      <Card bg="light">
         <Card.Header>Manage Algos</Card.Header>
         <Card.Body>
           <Card.Title>Your Dashboard shows your everything you need at a glance!</Card.Title>
@@ -18,7 +18,7 @@ export default function Home(props) {
       </Card>
       <br></br>
       <br></br>
-      <Card>
+      <Card bg="light">
         <Card.Header>View Algos</Card.Header>
         <Card.Body>
           <Card.Title>Go Check Out all our other Algos</Card.Title>
@@ -28,7 +28,20 @@ export default function Home(props) {
           <Button variant="info" size="lg" href="/algos/all" >Go To Algos</Button>
         </Card.Body>
       </Card>
-        
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>  
       </div>
     </div>
   );

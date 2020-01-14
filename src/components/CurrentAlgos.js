@@ -22,7 +22,7 @@ function CurrentAlgos(props) {
     
     <div>
         
-        <Table variant = "dark" size="xl" striped bordered hover >
+        <Table responsive variant = "dark" size="sm" striped bordered hover >
           <thead>
             <tr>
               <th>Name</th>

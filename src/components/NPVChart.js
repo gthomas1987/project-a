@@ -59,13 +59,13 @@ function NPVChart(props){
 
   
     return (
-          <div  id="chart">
+          <div>
             <Alert variant="dark">NPV Chart</Alert>
             <Chart
               options={options}
               series={series}
               type="line"
-              width="400"
+              width="100%"
               height="340"
             />
           </div>

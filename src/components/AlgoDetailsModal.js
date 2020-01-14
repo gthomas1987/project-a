@@ -51,7 +51,7 @@ function AlgoDetailsModal(props) {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-              <Table variant="dark" striped bordered hover>
+              <Table responsive variant="dark" striped bordered hover>
                 <thead>
                   <tr>
                     <th>Security</th>
@@ -93,7 +93,7 @@ function AlgoDetailsModal(props) {
             </Card.Header>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
-                <Table variant="dark" striped bordered hover>
+                <Table responsive variant="dark" striped bordered hover>
                   <thead>
                     <tr>
                       <th>Security</th>
