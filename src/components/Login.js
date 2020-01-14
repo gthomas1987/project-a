@@ -52,6 +52,20 @@ function Login(props) {
         </Col>
         <Col></Col>
       </Row>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </Container>
    
   );

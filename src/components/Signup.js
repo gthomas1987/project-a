@@ -112,7 +112,7 @@ export default function Signup(props) {
             <Row>
                 <Col></Col>
                 <Col>
-                    <form onSubmit={handleSubmit}>
+                    <form  onSubmit={handleSubmit}>
                         <FormGroup controlId="email" bssize="large">
                         <FormLabel>Email</FormLabel>
                         <FormControl
@@ -152,6 +152,20 @@ export default function Signup(props) {
             </Col>
             <Col></Col>
             </Row>
+            <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       </Container>
     );
   }
@@ -159,6 +173,20 @@ export default function Signup(props) {
   return (
     <div className="Signup">
       {newUser === null ? renderForm() : renderConfirmationForm()}
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }
