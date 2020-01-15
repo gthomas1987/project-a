@@ -3,6 +3,15 @@ import "./Home.css";
 import {Card,Button} from 'react-bootstrap'
 
 export default function Home(props) {
+
+  async function handleGoToDashboard() {
+    props.history.push("/dashboard");
+  }
+  async function handleGoToAlgos() {
+    props.history.push("/algos/all");
+  }
+
+
   return (
     <div className="Home">
       <div className="lander">
@@ -13,7 +22,7 @@ export default function Home(props) {
           <Card.Text>
             
           </Card.Text>
-          <Button variant="info" size="lg" href="/dashboard" >Go To Dashboard</Button>
+          <Button variant="info" size="lg" onClick={handleGoToDashboard} >Go To Dashboard</Button>
         </Card.Body>
       </Card>
       <br></br>
@@ -25,7 +34,7 @@ export default function Home(props) {
           <Card.Text>
             
           </Card.Text>
-          <Button variant="info" size="lg" href="/algos/all" >Go To Algos</Button>
+          <Button variant="info" size="lg" onClick={handleGoToAlgos} >Go To Algos</Button>
         </Card.Body>
       </Card>
       <br></br>

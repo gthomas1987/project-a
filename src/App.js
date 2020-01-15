@@ -41,7 +41,6 @@ function App(props) {
   }
 
   async function handleSignup() {
-    userHasAuthenticated(false);
     props.history.push("/signup");
   }
 
