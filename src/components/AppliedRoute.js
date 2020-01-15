@@ -5,8 +5,8 @@ import Signup from './Signup'
 
 export default function AppliedRoute({ component: C, appProps, ...rest }) {
   
-  
-
+  console.log("XXXXXXXX")
+  console.log(rest.path)
   return (
     !appProps.isAuthenticated 
     ?
