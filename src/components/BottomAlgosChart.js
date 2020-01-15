@@ -14,7 +14,6 @@ class BottomAlgosChart extends React.Component {
       options: {
         chart: {
           type: 'bar',
-          height: 350
         },
         plotOptions: {
           bar: {
@@ -58,8 +57,7 @@ class BottomAlgosChart extends React.Component {
         }],
         options: {
           chart: {
-            type: 'bar',
-            height: 350
+            type: 'bar'
           },
           plotOptions: {
             bar: {
@@ -91,7 +89,7 @@ class BottomAlgosChart extends React.Component {
       <div id="chart">
       {this.state.show
         ?
-        <ReactApexChart options={this.state.options} series={this.state.series} type="bar"/>
+        <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height="100%"/>
         :
       <div>
         <Container>
