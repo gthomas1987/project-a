@@ -57,7 +57,8 @@ class TopAlgosChart extends React.Component {
         }],
         options: {
           chart: {
-            type: 'bar'
+            foreColor: '#ffffff',
+            type: 'bar',
           },
           plotOptions: {
             bar: {

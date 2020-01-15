@@ -57,7 +57,8 @@ class BottomAlgosChart extends React.Component {
         }],
         options: {
           chart: {
-            type: 'bar'
+            type: 'bar',
+            foreColor: '#ffffff',
           },
           plotOptions: {
             bar: {
