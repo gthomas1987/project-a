@@ -33,7 +33,16 @@ function App(props) {
     await Auth.signOut();
   
     userHasAuthenticated(false);
-    props.history.push("/");
+    props.history.push("/login");
+  }
+
+  async function handleLogin() {
+    props.history.push("/login");
+  }
+
+  async function handleSignup() {
+    userHasAuthenticated(false);
+    props.history.push("/signup");
   }
 
   return (
@@ -56,8 +65,8 @@ function App(props) {
           : <>
           <Navbar.Collapse>
             <Nav className="ml-auto">
-              <Nav.Link style={{color:'white',fontWeight:"bold"}}  href="/signup">Sign Up</Nav.Link>
-              <Nav.Link style={{color:'white',fontWeight:"bold"}} href="/login">Log In</Nav.Link>
+              <Nav.Link style={{color:'white',fontWeight:"bold"}}  onClick={handleSignup}>Sign Up</Nav.Link>
+              <Nav.Link style={{color:'white',fontWeight:"bold"}} onClick={handleLogin}>Log In</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </>

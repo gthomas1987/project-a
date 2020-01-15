@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Card,
   FormGroup,
   FormControl,
   FormLabel,
@@ -112,6 +113,7 @@ export default function Signup(props) {
             <Row>
                 <Col></Col>
                 <Col>
+                <Card bg="light">
                     <form  onSubmit={handleSubmit}>
                         <FormGroup controlId="email" bssize="large">
                         <FormLabel>Email</FormLabel>
@@ -149,6 +151,7 @@ export default function Signup(props) {
                         Signup
                         </LoaderButton>
                     </form>
+                    </Card>
             </Col>
             <Col></Col>
             </Row>
