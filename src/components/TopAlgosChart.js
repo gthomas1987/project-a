@@ -90,7 +90,7 @@ class TopAlgosChart extends React.Component {
       <div id="chart">
       {this.state.show
         ?
-        <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height="300%" />
+        <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height="100%" />
         :
       <div>
         <Container>
