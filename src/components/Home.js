@@ -24,7 +24,7 @@ export default function Home(props) {
           <Card.Text>
             
           </Card.Text>
-          <Button variant="info" size="lg" onClick={handleGoToDashboard} >Go To Dashboard</Button>
+          <Button variant="primary" size="lg" onClick={handleGoToDashboard} >Go To Dashboard</Button>
         </Card.Body>
       </Card>
       </Col>
@@ -36,7 +36,7 @@ export default function Home(props) {
           <Card.Text>
             
           </Card.Text>
-          <Button variant="info" size="lg" onClick={handleGoToAlgos} >Go To Algos</Button>
+          <Button variant="primary" size="lg" onClick={handleGoToAlgos} >Go To Algos</Button>
         </Card.Body>
       </Card>
       </Col>

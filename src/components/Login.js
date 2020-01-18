@@ -1,13 +1,15 @@
 import React,{useState} from 'react';
 import {Card,Form,Button,Container,Row,Col} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
-
+import {Link} from 'react-router-dom';
+import ConfirmationForm from "./ConfirmationForm";
 
 
 function Login(props) {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [accountType,setAccountType] = useState("Live");
+  const [unconfirmedUser, setUnconfirmedUser] = useState(null);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -22,6 +24,10 @@ function Login(props) {
     }
   }
 
+  function handleConfirm(){
+    setUnconfirmedUser(null)
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -31,12 +37,18 @@ function Login(props) {
       sessionStorage.setItem("accounttype",accountType)
       props.history.push({pathname:"/dashboard"});
     } catch (e) {
-      alert(e.message);
+      if(e.name === 'UserNotConfirmedException') {
+        alert("You are not verified. Resending the verification code to " + email);
+        await Auth.resendSignUp(email);
+        setUnconfirmedUser(email)
+      } else {
+          alert(e.message);
+      }
     }
   }
   
-  
-  return (
+  function renderForm(){
+    return (
     <Container>
       <br></br>
       <Row>
@@ -59,39 +71,54 @@ function Login(props) {
             <Form.Group  controlId="formAccountType">
             <Form.Check value={accountType} type="checkbox" label="Paper Account" onChange={handleAccountChange} />
             </Form.Group>
+
+            
+            <Link to="/login/reset">Forgot password?</Link>
+            
             <br></br>
-            <Button size="lg" variant="info" disabled={!validateForm()} type="submit" block>
+            <br></br>
+            <Button size="lg" variant="primary" disabled={!validateForm()} type="submit" block>
               Submit
             </Button>
           </Form>
+
           </Card>
         </Col>
         <Col md="auto" lg="4" ></Col>
         
       </Row>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </Container>
+    )
+  }
+
+  
+  return (
+    <div className="Signup">
+    {unconfirmedUser === null ? renderForm() : <ConfirmationForm email={email} confirmed={handleConfirm}/> }
+    <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+   <br></br>
+    </div>
+   
    
   );
 }

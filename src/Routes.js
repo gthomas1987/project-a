@@ -7,11 +7,13 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import NotFound from "./components/NotFound";
 import Algos from "./components/Algos";
+import ResetPassword from "./components/ResetPassword";
 
 export default function Routes({appProps}) {
   return (
     <Switch>
         <Route path="/" exact component={Home}  />
+        <Route path="/login/reset" exact component={ResetPassword}  />
         <AppliedRoute path="/signup" component={Signup} appProps={appProps}/>
         <AppliedRoute path="/login" component={Login} appProps={appProps} />
         <AppliedRoute path="/dashboard" exact component={Dashboard} appProps={appProps} />
