@@ -39,7 +39,7 @@ function SideNavigation(props){
                             Dashboard
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/algos/all">
+                    <NavItem eventKey="/algos">
                         <NavIcon>
                         <h2><GiProcessor/></h2>
                         </NavIcon>

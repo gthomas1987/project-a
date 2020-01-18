@@ -22,7 +22,7 @@ function Summary(props) {
                 <td>{USDFormat(props.summary.npv)}</td>
               </tr>
               <tr>
-                <td>Cash Deposited&nbsp;&nbsp;&nbsp;<Deposit refresh={props.refresh} userid={props.userid} min={5000} max={50000}/></td>
+                <td>Cash Deposited&nbsp;&nbsp;&nbsp;<Deposit refresh={props.refresh} min={5000} max={50000}/></td>
                 <td>{USDFormat(props.summary.accountbalance)}</td>
               </tr>
               
@@ -35,7 +35,7 @@ function Summary(props) {
                 <td>{props.summary.usagelevel}</td>
               </tr>
               <tr>
-                <td>Amount Free&nbsp;&nbsp;&nbsp;<Withdraw userid={props.userid} min={0} max={props.summary.amountFree}/></td>
+                <td>Amount Free&nbsp;&nbsp;&nbsp;<Withdraw  min={0} max={props.summary.amountFree}/></td>
                 <td>{USDFormat(props.summary.amountfree)}</td>
               </tr>
               

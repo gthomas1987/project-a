@@ -14,7 +14,7 @@ function CurrentAlgos(props) {
   useEffect(()=>{
     setCurrentAlgos(props.clientAlgos)
     
-  },[props.userid,props.clientAlgos]);
+  },[props.userid,props.clientAlgos,props.accounttype]);
 
   
   
@@ -39,13 +39,13 @@ function CurrentAlgos(props) {
                   <td>{USDFormat(item.pnl)}</td>
                   <Row>
                   <Col>
-                  <AddAmountModal userid={props.userid} name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
+                  <AddAmountModal name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
                   </Col>  
                   <Col>
-                  <WithdrawAmountModal userid={props.userid} name={item.name}  min={5000} max={item.amount} refresh={props.refresh}/>
+                  <WithdrawAmountModal name={item.name}  min={5000} max={item.amount} refresh={props.refresh}/>
                   </Col>
                   <Col>
-                  <AlgoDetailsModal name={item.name} userid={props.userid} details={props.allAlgosDetails}/>
+                  <AlgoDetailsModal name={item.name} details={props.allAlgosDetails}/>
                   </Col>
                   </Row>
                 </tr>

@@ -7,18 +7,29 @@ import { Auth } from "aws-amplify";
 function Login(props) {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [accountType,setAccountType] = useState("Live");
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
+  function handleAccountChange(event){
+    if(event.target.value==="Live"){
+      setAccountType("Paper")
+    }
+    else{
+      setAccountType("Live")
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
-  
     try {
       await Auth.signIn(email, password);
       props.userHasAuthenticated(true);
-      props.history.push({pathname:"/dashboard",state:{email}});
+      sessionStorage.setItem("email",email)
+      sessionStorage.setItem("accounttype",accountType)
+      props.history.push({pathname:"/dashboard"});
     } catch (e) {
       alert(e.message);
     }
@@ -30,9 +41,9 @@ function Login(props) {
       <br></br>
       <Row>
         
-        <Col></Col>
-        <Col >
-        <Card bg="light" >
+        <Col md="auto" lg="4" ></Col>
+        <Col md="auto" lg="4" >
+        <Card bg="dark" text="white" >
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail"  >
               <Form.Label>Email</Form.Label>
@@ -44,6 +55,10 @@ function Login(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control value={password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
             </Form.Group>
+
+            <Form.Group  controlId="formAccountType">
+            <Form.Check value={accountType} type="checkbox" label="Paper Account" onChange={handleAccountChange} />
+            </Form.Group>
             <br></br>
             <Button size="lg" variant="info" disabled={!validateForm()} type="submit" block>
               Submit
@@ -51,9 +66,17 @@ function Login(props) {
           </Form>
           </Card>
         </Col>
-        <Col></Col>
+        <Col md="auto" lg="4" ></Col>
         
       </Row>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>

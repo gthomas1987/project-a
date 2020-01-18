@@ -33,7 +33,7 @@ export function Deposit(props) {
   const UpdateCash = async() => {
     
     console.log(config.apiGateway.URL)
-    const data = {"userid":props.userid,"amount":{amount}.amount,"action":"add"}
+    const data = {"userid":sessionStorage.getItem("userid"),"accounttype":sessionStorage.getItem("accounttype"),"amount":{amount}.amount,"action":"add"}
     await fetch(config.apiGateway.URL+'/updateCash', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(data), // data can be `string` or {object}!
@@ -46,28 +46,6 @@ export function Deposit(props) {
         console.log("Deposit Update Cash API")
         console.log(data)
         props.refresh()
-        /*props.summary.cashDep=data.accountbalance
-        console.log(props)
-        props.summary={
-          summary:{
-            pnl:data.pnl,
-            npv:data.npv,
-            cashDep:data.accountbalance,
-            amountAlloc:data.amountallocated,
-            usagePer:data.usagelevel,
-            amountFree:data.amountfree
-          }
-        }*/
-
-        /*this.setState({
-          pnl:data.pnl,
-          npv:data.npv,
-          cashDep:data.accountbalance,
-          amountAlloc:data.amountallocated,
-          usagePer:data.usagelevel,
-          amountFree:data.amountfree
-        });
-        */
       })
     }
   

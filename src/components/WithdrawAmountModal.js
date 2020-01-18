@@ -32,7 +32,7 @@ function WithdrawAmountModal(props) {
 
   const UpdateAmount = async() => {
     try {
-      const data = {"userid":props.userid,"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
+      const data = {"userid":sessionStorage.getItem("userid"),"accounttype":sessionStorage.getItem("accounttype"),"algoname":props.name,"amount":{amount}.amount,"action":"withdraw"}
       await fetch(config.apiGateway.URL+'/updateAmount', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Spinner,Container,Row,Col} from 'react-bootstrap';
+import {Alert,Card,Spinner,Container,Row,Col} from 'react-bootstrap';
 import Summary from './Summary'
 import CurrentAlgos from './CurrentAlgos'
 import AllAlgos from './AllAlgos'
@@ -15,6 +15,7 @@ class Dashboard extends React.Component{
     super(props);
     this.state={
       isLoaded:false,
+      accounttype:sessionStorage.getItem("accounttype"),
       userid:"",
       summary:{
         pnl:0.0,
@@ -38,9 +39,8 @@ class Dashboard extends React.Component{
     function sleepSeconds(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-    const data = {"userid":this.state.userid}
     await sleepSeconds(1000)
-    console.log("refreshing dashboard")
+    const data = {"userid":this.state.userid,"accounttype":this.state.accounttype}
     await fetch(config.apiGateway.URL+"/getsummary", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -69,11 +69,11 @@ class Dashboard extends React.Component{
   }
   
   async componentDidMount(){
-    
     await Auth.currentAuthenticatedUser({
       bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
     })
     .then(user => {
+      sessionStorage.setItem("userid",user.username)
       this.setState({userid:user.username})
       
       }
@@ -97,17 +97,27 @@ class Dashboard extends React.Component{
         {this.state.isLoaded
         ?
         <div style={{'background-color': '#000000'}}>
+          {this.state.accounttype==="Live"
+          ?
+          <Alert variant="primary">
+            <Alert.Heading>Live Account</Alert.Heading>
+          </Alert>
+          :
+          <Alert variant="danger">
+            <Alert.Heading>Paper Account</Alert.Heading>
+          </Alert>
           
-      
+          }
+          
         <Card bg="dark">
         <Row>
-          <Col>
-          <Summary userid={this.state.userid} summary={this.state.summary} refresh={this.refreshDashboard} />
+          <Col md="auto" lg="4" >
+          <Summary summary={this.state.summary} refresh={this.refreshDashboard} />
           </Col>
-          <Col>
+          <Col md="auto" lg="4" >
           <NPVChart npvChart={this.state.npvChart}/>
           </Col>
-          <Col>
+          <Col md="auto" lg="4" >
           <AllocationChart allocation={this.state.allocationDetails}/>
           </Col>
         </Row>
@@ -116,12 +126,12 @@ class Dashboard extends React.Component{
         
             <Row>
               <Col>
-            <AllAlgos  userid={this.state.userid} allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
+            <AllAlgos  allAlgos={this.state.allAlgos} allAlgosDetails={this.state.allAlgosDetails} summary={this.state.summary} refresh={this.refreshDashboard}/>
             </Col>
             </Row>
             <Row>
               <Col>
-            <CurrentAlgos userid={this.state.userid} allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/>
+            <CurrentAlgos allAlgosDetails={this.state.allAlgosDetails} clientAlgos={this.state.clientAlgos} summary={this.state.summary} refresh={this.refreshDashboard}/>
             </Col>
             </Row>
             
@@ -143,6 +153,17 @@ class Dashboard extends React.Component{
           </Spinner>
         </Col>
         <Col></Col>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>

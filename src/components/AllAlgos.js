@@ -15,7 +15,7 @@ function AllAlgos(props) {
 
   useEffect(()=>{
     setCurrentAlgos(props.allAlgos)
-  },[props.userid,props.allAlgos]);
+  },[props.allAlgos]);
 
   
   
@@ -48,10 +48,10 @@ function AllAlgos(props) {
                   <Row>
                     
                   <Col>
-                  <AddAmountModal userid={props.userid} name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
+                  <AddAmountModal name={item.name}  min={5000} max={props.summary.amountfree} refresh={props.refresh}/>
                   </Col>  
                   <Col>
-                  <AlgoDetailsModal name={item.name} details={props.allAlgosDetails} userid={props.userid}  />
+                  <AlgoDetailsModal name={item.name} details={props.allAlgosDetails} />
                   </Col>
                   </Row>
                 </tr>

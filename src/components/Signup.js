@@ -111,9 +111,9 @@ export default function Signup(props) {
         <Container>
           <br></br>
             <Row>
-                <Col></Col>
-                <Col>
-                <Card bg="light">
+                <Col md="auto" lg="4"></Col>
+                <Col md="auto" lg="4">
+                <Card bg="dark" text="white">
                     <form  onSubmit={handleSubmit}>
                         <FormGroup controlId="email" bssize="large">
                         <FormLabel>Email</FormLabel>
@@ -153,7 +153,7 @@ export default function Signup(props) {
                     </form>
                     </Card>
             </Col>
-            <Col></Col>
+            <Col  md="auto" lg="4"></Col>
             </Row>
             <br></br>
       <br></br>

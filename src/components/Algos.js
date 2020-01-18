@@ -1,13 +1,14 @@
 import React from 'react';
-import TopAlgosChart from './TopAlgosChart';
-import BottomAlgosChart from './BottomAlgosChart';
+import AlgosChart from './AlgosChart';
 
 
 function Algos(props) {
     return (
-      <div>
-        <TopAlgosChart/>
-        <BottomAlgosChart/>
+      <div style={{'color':"white"}}>
+        <AlgosChart accounttype={sessionStorage.getItem("accounttype")} />
+        <br></br>
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>
