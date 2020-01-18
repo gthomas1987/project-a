@@ -75,8 +75,9 @@ export default function Signup(props) {
       <Container>
         <br></br>
           <Row>
-              <Col></Col>
-                <Col md="auto">
+              <Col md="auto" lg="4"></Col>
+                <Col md="auto" lg="4">
+                <Card bg="dark" text="white">
                   <form onSubmit={handleConfirmationSubmit}>
                     <FormGroup controlId="confirmationCode" bsSize="large">
                       <FormLabel>Confirmation Code</FormLabel>
@@ -86,7 +87,7 @@ export default function Signup(props) {
                         onChange={handleFieldChange}
                         value={fields.confirmationCode}
                       />
-                      <FormText>Please check your email for the code.</FormText >
+                      <FormText>Please check your email (and Spam/Junk folder) for the code.</FormText >
                     </FormGroup>
                     <LoaderButton
                       block
@@ -99,8 +100,9 @@ export default function Signup(props) {
                       Verify
                     </LoaderButton>
                   </form>
+                  </Card>
                   </Col>
-                <Col></Col>
+                <Col md="auto" lg="4" ></Col>
             </Row>
       </Container>
     );
