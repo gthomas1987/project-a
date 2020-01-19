@@ -1,14 +1,15 @@
 import React,{useState} from 'react';
-import {Card,Form,Button,Container,Row,Col} from 'react-bootstrap';
+import {Card,Form,Container,Row,Col} from 'react-bootstrap';
 import { Auth } from "aws-amplify";
 import {Link} from 'react-router-dom';
 import ConfirmationForm from "./ConfirmationForm";
-
+import LoaderButton from "../components/LoaderButton";
 
 function Login(props) {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [accountType,setAccountType] = useState("Live");
+  const [isLoading, setIsLoading] = useState(false);
   const [unconfirmedUser, setUnconfirmedUser] = useState(null);
 
   function validateForm() {
@@ -30,19 +31,23 @@ function Login(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
     try {
       await Auth.signIn(email, password);
       props.userHasAuthenticated(true);
       sessionStorage.setItem("email",email)
       sessionStorage.setItem("accounttype",accountType)
+      setIsLoading(false);
       props.history.push({pathname:"/dashboard"});
     } catch (e) {
       if(e.name === 'UserNotConfirmedException') {
         alert("You are not verified. Resending the verification code to " + email);
         await Auth.resendSignUp(email);
         setUnconfirmedUser(email)
+        setIsLoading(false);
       } else {
           alert(e.message);
+          setIsLoading(false);
       }
     }
   }
@@ -77,9 +82,17 @@ function Login(props) {
             
             <br></br>
             <br></br>
-            <Button size="lg" variant="primary" disabled={!validateForm()} type="submit" block>
-              Submit
-            </Button>
+            
+            <LoaderButton
+              block
+              type="submit"
+              bssize="large"
+              variant="primary"
+              isLoading={isLoading}
+              disabled={!validateForm()}
+              >
+              Log In
+              </LoaderButton>
           </Form>
 
           </Card>
