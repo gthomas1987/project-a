@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {withRouter} from 'react-router-dom';
-import {FaHome} from "react-icons/fa";
+import {FaHome,FaAdn} from "react-icons/fa";
 import {GiProcessor} from "react-icons/gi";
 import {GoDashboard} from "react-icons/go";
 
@@ -45,6 +45,14 @@ function SideNavigation(props){
                         </NavIcon>
                         <NavText>
                             Algos
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="/admin">
+                        <NavIcon>
+                        <h2><FaAdn/></h2>
+                        </NavIcon>
+                        <NavText>
+                            Admin
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>
