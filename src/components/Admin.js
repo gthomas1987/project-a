@@ -123,10 +123,6 @@ class Admin extends React.Component{
                 <td>{USDFormat(this.state.adminsummary.FullMaintMarginReq)}</td>
               </tr>
               <tr>
-                <td>Net Liquidation</td>
-                <td>{USDFormat(this.state.adminsummary.NetLiquidation)}</td>
-              </tr>
-              <tr>
                 <td>Full Available Funds</td>
                 <td>{USDFormat(this.state.adminsummary.FullAvailableFunds)}</td>
               </tr>

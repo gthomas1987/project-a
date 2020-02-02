@@ -13,8 +13,6 @@ import './Dashboard.css';
 class Dashboard extends React.Component{
   constructor(props){
     super(props);
-    console.log("Dashboard contructor")
-    console.log(sessionStorage.getItem("accounttype"))
     this.state={
       isLoaded:false,
       accounttype:sessionStorage.getItem("accounttype"),

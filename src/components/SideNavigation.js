@@ -3,8 +3,10 @@ import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {withRouter} from 'react-router-dom';
 import {FaHome,FaAdn} from "react-icons/fa";
+import {MdHistory} from "react-icons/md";
 import {GiProcessor} from "react-icons/gi";
 import {GoDashboard} from "react-icons/go";
+
 
 function SideNavigation(props){
     const [show,setShow] = useState(false);
@@ -45,6 +47,14 @@ function SideNavigation(props){
                         </NavIcon>
                         <NavText>
                             Algos
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="/backtesting">
+                        <NavIcon>
+                        <h2><MdHistory/></h2>
+                        </NavIcon>
+                        <NavText>
+                            Back Testing
                         </NavText>
                     </NavItem>
                     <NavItem eventKey="/admin">
