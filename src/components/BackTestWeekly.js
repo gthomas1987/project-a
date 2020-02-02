@@ -1,5 +1,4 @@
 import React,{useEffect,useState} from 'react';
-import ReactApexChart from 'apexcharts'
 
 import Chart from "react-apexcharts";
 
@@ -9,11 +8,6 @@ function BackTestWeekly (props) {
   const [series,setSeries] = useState([]);
 
   useEffect(()=>{
-    
-    console.log("XXXXXX")
-    console.log(props)
-    console.log(props.chartValue)
-
     setSeries([
         {
           name: 'Weekly PnL',

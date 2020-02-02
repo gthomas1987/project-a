@@ -1,16 +1,17 @@
 import React from 'react';
-import {Form,Button,Table,Alert,Card,Row,Col,Container,Spinner} from 'react-bootstrap';
+import {Form,Col} from 'react-bootstrap';
 import config from '../config';
 import BackTestChart from './BackTestChart'
 import BackTestWeekly from './BackTestWeekly'
-import {USDFormat} from '../libs/numberFormat'
 import './Dashboard.css';
+import LoaderButton from "../components/LoaderButton";
 
 
 class BackTesting extends React.Component{
   constructor(props){
     super(props);
     this.state={
+      isLoaded:false,
       security1:"S&P",
       security2:"Nasdaq",
       lookback:"1 Y",
@@ -39,6 +40,7 @@ class BackTesting extends React.Component{
 
   async runBackTest(){
     const data = this.state
+    this.setState({isLoaded:true})
     await fetch(config.apiGateway.URL+"/runbacktest", {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -57,9 +59,9 @@ class BackTesting extends React.Component{
           chart2:data.diffDict,
           chart3:data.weeklyPnL,
         });
-        /*
-        this.setState({isLoaded:true})
-        */
+        
+        this.setState({isLoaded:false})
+        
       })
       .catch(error=>console.log(error));
   }
@@ -105,6 +107,9 @@ class BackTesting extends React.Component{
                   <option>3 M</option>
                   <option>6 M</option>
                   <option>1 Y</option>
+                  <option>2 Y</option>
+                  <option>5 Y</option>
+                  <option>10 Y</option>
                 </Form.Control>
               </Form.Group>
 
@@ -184,11 +189,16 @@ class BackTesting extends React.Component{
               </Form.Group>
             </Form.Row>
 
+            <LoaderButton
+              
+              bssize="large"
+              variant="primary"
+              isLoading={this.state.isLoaded}
+              onClick={this.runBackTest}
+              >
+              Run Back Testing
+            </LoaderButton>
 
-
-            <Button onClick={this.runBackTest} variant="primary">
-              Run
-            </Button>
           </Form>
 
           
