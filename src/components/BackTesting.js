@@ -130,7 +130,7 @@ class BackTesting extends React.Component{
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridTrend">
-                <Form.Label>Trend</Form.Label>
+                <Form.Label>Param 1</Form.Label>
                 <Form.Control as="select" value={this.state.trend} onChange={this.handleChange} name="trend">
                   <option>5</option>
                   <option>10</option>
@@ -141,9 +141,9 @@ class BackTesting extends React.Component{
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col} controlId="formGridMeanRev">
-                <Form.Label>Mean Rev</Form.Label>
+                <Form.Label>Param 2</Form.Label>
                 <Form.Control as="select" value={this.state.meanrev} onChange={this.handleChange} name="meanrev">
-                  <option>75</option>
+                  <option>85</option>
                   <option>100</option>
                   <option>125</option>
                   <option>150</option>
@@ -152,7 +152,7 @@ class BackTesting extends React.Component{
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col} controlId="formGridTP">
-                <Form.Label>TP</Form.Label>
+                <Form.Label>Tp</Form.Label>
                 <Form.Control as="select" value={this.state.tp} onChange={this.handleChange} name="tp">
                   <option>5</option>
                   <option>10</option>
@@ -163,7 +163,7 @@ class BackTesting extends React.Component{
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col} controlId="formGridTrailTP">
-                <Form.Label>Trail TP</Form.Label>
+                <Form.Label>TrTP</Form.Label>
                 <Form.Control as="select" value={this.state.trailtp} onChange={this.handleChange} name="trailtp">
                   <option>5</option>
                   <option>10</option>
@@ -173,7 +173,7 @@ class BackTesting extends React.Component{
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col} controlId="formGridSL">
-                <Form.Label>Stop Loss</Form.Label>
+                <Form.Label>SL</Form.Label>
                 <Form.Control as="select" value={this.state.sl} onChange={this.handleChange} name="sl">
                   <option>10</option>
                   <option>25</option>
